@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta http-equiv="refresh" content="60"><meta charset="utf-8"><title>QUANT//FLOOR — Paper Trading</title>
+<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+:root{--g:#39ff14;--m:#ff2bd6;--bg:#07070d;--p:#0e0e1a;--b:#1f1f3a;--t:#c9d1e0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0,#14082a,#07070d 60%);color:var(--t);font:13px 'JetBrains Mono',Consolas,monospace}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid var(--b)}
+h1{margin:0;font-size:20px;color:var(--g);text-shadow:0 0 10px var(--g);letter-spacing:3px}h1 span{color:var(--m);text-shadow:0 0 10px var(--m)}
+.clock{color:var(--m);font-size:16px;text-shadow:0 0 8px var(--m)}.tag{font-size:11px;color:#888}
+.stats{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;padding:12px 22px}
+.stat{background:var(--p);border:1px solid var(--b);border-radius:8px;padding:8px 10px}.stat b{display:block;font-size:16px;color:#fff;margin-top:3px}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:12px;padding:0 22px 22px}
+.card{background:var(--p);border:1px solid var(--b);border-radius:10px;padding:12px;box-shadow:0 0 18px rgba(57,255,20,.05)}
+.card h2{margin:0 0 8px;font-size:12px;letter-spacing:2px;color:var(--m)}
+.big{font-size:40px;color:var(--g);text-shadow:0 0 14px var(--g);font-weight:700}.sub{font-size:15px}
+.pos{color:var(--g)}.neg{color:var(--m)}table{width:100%;border-collapse:collapse}td,th{padding:4px 6px;border-bottom:1px solid var(--b);text-align:left}th{color:#888;font-weight:400}
+.badge{padding:1px 7px;border-radius:4px;font-size:11px}.TAKEN{background:var(--g);color:#000}.VETOED{background:var(--m);color:#000}.PASS,.HELD,.APPROVED{border:1px solid #666}
+.floor{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.agent{background:#0a0a14;border:1px solid var(--b);border-radius:10px;padding:10px;position:relative}
+.agent .av{font-size:26px}.agent .nm{color:var(--g);font-size:12px;margin:4px 0}.agent .th{font-size:11px;line-height:1.4;max-height:110px;overflow:auto}
+.agent .dot{position:absolute;top:10px;right:10px;width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 8px var(--g);animation:p 1.5s infinite}
+@keyframes p{50%{opacity:.2}}select{background:#000;color:var(--g);border:1px solid var(--g);font:inherit}
+.full{grid-column:1/-1}.scroll{max-height:260px;overflow:auto}
+</style></head><body>
+<header><div><h1>QUANT<span>//</span>FLOOR</h1><div class="tag">PAPER TRADING · FAKE MONEY · REAL PRICES · NO BROKERAGE</div></div>
+<div style="text-align:right"><div class="clock" id="clock"></div><div class="tag" id="upd"></div></div></header>
+<div class="stats" id="stats"></div>
+<div class="grid">
+ <div class="card"><h2>EQUITY CURVE</h2><div style="display:flex;gap:22px;align-items:baseline"><div class="big" id="eq"></div><div class="sub" id="pnl"></div></div><div id="eqc" style="height:230px"></div></div>
+ <div class="card"><h2>SIGNALS</h2><div class="scroll"><table id="sig"></table></div></div>
+ <div class="card"><h2>CANDLES · <select id="sel"></select></h2><div id="cc" style="height:280px"></div></div>
+ <div class="card"><h2>OPEN POSITIONS</h2><table id="pos"></table><h2 style="margin-top:14px">VETO LOG</h2><div class="scroll" style="max-height:120px"><table id="veto"></table></div></div>
+ <div class="card full"><h2>TRADING FLOOR</h2><div class="floor" id="floor"></div></div>
+ <div class="card full"><h2>TRADE LOG</h2><div class="scroll"><table id="trades"></table></div></div>
+</div>
+<script>
+const $=id=>document.getElementById(id),f=(n,d=2)=>n==null?'—':Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const usd=n=>(n<0?'-$':'$')+f(Math.abs(n)),pct=n=>n==null?'—':(n>=0?'+':'')+f(n*100)+'%',cls=n=>n>=0?'pos':'neg';
+const ct=s=>new Date(s).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' CT';
+setInterval(()=>$('clock').textContent=new Date().toLocaleTimeString('en-US',{timeZone:'America/Chicago'})+' CT',1000);
+const AG=[['Research Analyst','🛰️'],['Quant Strategist','🧮'],['Risk Manager','🛡️'],['Trader','⚡'],['Portfolio Reporter','📊']];
+let eqChart,eqSer,cChart,cSer,S,C;
+function charts(){const o={layout:{background:{color:'transparent'},textColor:'#8a8fa8'},grid:{vertLines:{color:'#15152a'},horzLines:{color:'#15152a'}},timeScale:{timeVisible:true}};
+eqChart=LightweightCharts.createChart($('eqc'),o);eqSer=eqChart.addAreaSeries({lineColor:'#39ff14',topColor:'rgba(57,255,20,.4)',bottomColor:'rgba(57,255,20,0)'});
+cChart=LightweightCharts.createChart($('cc'),o);cSer=cChart.addCandlestickSeries({upColor:'#39ff14',downColor:'#ff2bd6',borderVisible:false,wickUpColor:'#39ff14',wickDownColor:'#ff2bd6'});
+$('sel').onchange=()=>drawC();}
+function drawC(){const t=$('sel').value;if(C&&C[t]){cSer.setData(C[t]);cChart.timeScale().fitContent();}}
+function render(){const s=S.stats;
+$('eq').textContent=usd(s.equity);$('pnl').innerHTML=`<span class="${cls(s.pnl)}">${usd(s.pnl)} · ${pct(s.roi)}</span>`;
+$('upd').textContent='last cycle '+ct(S.cycle_ts)+' · cycle #'+S.cycles+' · market '+(S.market_open?'OPEN':'CLOSED');
+const st=[['CASH',usd(s.cash)],['HOLDINGS',usd(s.holdings)],['P&L',`<span class="${cls(s.pnl)}">${usd(s.pnl)}</span>`],['ROI',`<span class="${cls(s.roi)}">${pct(s.roi)}</span>`],['TRADES',s.trades],['WIN RATE',s.win_rate==null?'—':pct(s.win_rate).replace('+','')],['MAX DD',`<span class="neg">${pct(s.max_dd)}</span>`],['DAY',`${s.day} / ${s.days}`]];
+$('stats').innerHTML=st.map(([k,v])=>`<div class="stat">${k}<b>${v}</b></div>`).join('');
+const seen={};eqSer.setData(S.equity_hist.map(r=>({time:Math.floor(new Date(r.ts)/1000)-5*3600,value:r.equity})).filter(p=>!seen[p.time]&&(seen[p.time]=1)));eqChart.timeScale().fitContent();
+$('sig').innerHTML='<tr><th>TICKER</th><th>SIGNAL</th><th>PRICE</th><th>STATUS</th></tr>'+(S.signals.length?S.signals.map(x=>`<tr><td>${x.ticker}</td><td>BUY · ${x.signal}</td><td>${f(x.price)}</td><td><span class="badge ${x.status}" title="${x.reason||''}">${x.status}</span></td></tr>`).join(''):'<tr><td colspan=4>No signals this cycle</td></tr>');
+const P=Object.entries(S.positions);$('pos').innerHTML='<tr><th>TICKER</th><th>QTY</th><th>ENTRY</th><th>LAST</th><th>STOP</th><th>UNREAL.</th></tr>'+(P.length?P.map(([t,p])=>`<tr><td>${t}</td><td>${f(p.qty,5)}</td><td>${f(p.entry)}</td><td>${f(p.price)}</td><td>${f(p.stop)}</td><td class="${cls(p.upnl)}">${usd(p.upnl)}</td></tr>`).join(''):'<tr><td colspan=6>Flat — 100% cash</td></tr>');
+$('veto').innerHTML=S.vetoes.length?S.vetoes.slice(-20).reverse().map(v=>`<tr><td>${ct(v.ts)}</td><td>${v.ticker}</td><td>${v.reason}</td></tr>`).join(''):'<tr><td>No vetoes yet</td></tr>';
+$('trades').innerHTML='<tr><th>TIME</th><th>SIDE</th><th>TICKER</th><th>QTY</th><th>PRICE</th><th>FEE</th><th>P&L</th><th>WHY</th></tr>'+(S.trades.length?S.trades.slice().reverse().map(t=>`<tr><td>${ct(t.ts)}</td><td class="${t.side=='BUY'?'pos':'neg'}">${t.side}</td><td>${t.ticker}</td><td>${f(t.qty,5)}</td><td>${f(t.price)}</td><td>${f(t.fee)}</td><td>${t.pnl==null?'—':usd(t.pnl)}</td><td>${t.reason}</td></tr>`).join(''):'<tr><td colspan=8>No trades yet</td></tr>');
+$('floor').innerHTML=AG.map(([n,e])=>{const a=S.agents[n]||{};return `<div class="agent"><div class="dot"></div><div class="av">${e}</div><div class="nm">${n.toUpperCase()}</div><div class="tag">${a.ts?ct(a.ts):''}</div><div class="th">${a.msg||'idle'}</div></div>`}).join('');
+const sel=$('sel'),keys=Object.keys(C||{}),hold=Object.keys(S.positions),opts=[...hold,...keys.filter(k=>!hold.includes(k))];
+if(sel.options.length!==opts.length){const cur=sel.value;sel.innerHTML=opts.map(k=>`<option>${k}</option>`).join('');if(cur)sel.value=cur;}drawC();}
+async function load(){if(window.INLINE){S=INLINE.ledger;C=INLINE.candles;return render();}
+try{S=await (await fetch('state/ledger.json?'+Date.now())).json();C=await (await fetch('state/candles.json?'+Date.now())).json();render();}catch(e){$('upd').textContent='load error: '+e}}
+charts();load();if(!window.INLINE)setInterval(load,60000);
+</script></body></html>
