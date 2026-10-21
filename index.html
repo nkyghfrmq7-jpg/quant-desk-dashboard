@@ -1,216 +1,326 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23fff'/%3E%3Crect x='10' y='10' width='3' height='9' fill='%23000'/%3E%3Crect x='19' y='10' width='3' height='9' fill='%23000'/%3E%3C/svg%3E"><title>QUANT DESK · Trading Floor</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23fff'/%3E%3Crect x='10' y='12' width='3' height='9' rx='1.5' fill='%23000'/%3E%3Crect x='19' y='12' width='3' height='9' rx='1.5' fill='%23000'/%3E%3C/svg%3E">
+<title>QUANT DESK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#05060a;--pn:#0b0e17cc;--ln:#1c2340;--tx:#cfd8ff;--mut:#6b7499;--blue:#2fd4ff;--mag:#ff2bd6;--grn:#39ff88;--org:#ff9a2f;--pur:#a066ff;--red:#ff4d6d}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--tx);font:12px/1.4 ui-monospace,Menlo,Consolas,monospace}
-body{background:radial-gradient(ellipse at 50% 40%,#140a2a 0,#05060a 60%)}
-header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--ln);background:#070912e6}
-.logo{font-weight:800;font-size:18px;letter-spacing:3px;background:linear-gradient(90deg,var(--blue),var(--mag));-webkit-background-clip:text;color:transparent;text-shadow:0 0 18px #2fd4ff55}
-.kpi{padding:3px 9px;border:1px solid var(--ln);border-radius:6px;background:#0b0e17}.kpi b{display:block;font-size:14px;color:#fff}.kpi span{color:var(--mut);font-size:10px;text-transform:uppercase}
-.roster{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
-.ag{cursor:pointer;display:flex;gap:6px;align-items:center;padding:4px 8px;border:1px solid var(--c);border-radius:20px;color:var(--c);background:#0b0e17;box-shadow:0 0 8px color-mix(in srgb,var(--c) 40%,transparent) inset;transition:.2s}
-.ag:hover,.ag.on{background:color-mix(in srgb,var(--c) 22%,#0b0e17)}.ag.pulse{animation:p .9s}@keyframes p{50%{box-shadow:0 0 18px var(--c)}}
-main{display:grid;grid-template-columns:350px 1fr 300px;grid-template-rows:minmax(420px,62vh) auto;gap:8px;padding:8px}
-.pn{background:var(--pn);border:1px solid var(--ln);border-radius:8px;padding:8px;overflow:auto;backdrop-filter:blur(4px)}
-.pn h3{margin:0 0 6px;font-size:11px;letter-spacing:2px;color:var(--blue);text-transform:uppercase}
-.col{display:flex;flex-direction:column;gap:8px;min-height:0}.col .pn{flex:1;min-height:0}
-#stage{position:relative;border:1px solid var(--ln);border-radius:8px;overflow:hidden;min-height:340px}#stage canvas{display:block;width:100%;height:100%}
-#stagehint{position:absolute;left:8px;bottom:6px;color:var(--mut);font-size:10px;pointer-events:none}
-#bubble{position:absolute;right:8px;top:8px;max-width:55%;font-size:11px;padding:6px 8px;border-radius:6px;background:#000a;border:1px solid var(--ln);pointer-events:none;opacity:0;transition:.4s}
-.bottom{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:8px}
-table{width:100%;border-collapse:collapse}td,th{padding:3px 4px;text-align:right;border-bottom:1px solid #141a30}th{color:var(--mut);font-weight:400}td:first-child,th:first-child{text-align:left}
-.up{color:var(--grn)}.dn{color:var(--red)}.mut{color:var(--mut)}
-.feed div{padding:4px 0;border-bottom:1px dashed #182040}.feed .who{font-weight:700}
-.heat{display:grid;grid-template-columns:52px repeat(4,1fr);gap:2px;font-size:10px}.heat div{padding:4px 2px;text-align:center;border-radius:3px}
-#tip{position:fixed;pointer-events:none;background:#000d;border:1px solid var(--blue);padding:5px 8px;border-radius:5px;font-size:11px;display:none;z-index:9;max-width:260px}
-#drawer{position:fixed;right:0;top:0;height:100%;width:min(420px,100%);background:#080b15f5;border-left:2px solid var(--c,#2fd4ff);transform:translateX(105%);transition:.3s;z-index:8;padding:14px;overflow:auto}
-#drawer.open{transform:none}#drawer h2{margin:0 0 4px;color:var(--c)}#drawer .x{float:right;cursor:pointer;font-size:18px}
-select{background:#0b0e17;color:var(--tx);border:1px solid var(--ln);font:inherit}
-a{color:var(--blue)}footer{padding:6px 12px;color:var(--mut);font-size:10px}
-.ph{color:var(--mut);font-style:italic}
-@media(max-width:900px){main{grid-template-columns:1fr;grid-template-rows:auto}#stage{height:56vh;order:-1}.bottom{grid-template-columns:1fr}.roster{margin-left:0}.col .pn{max-height:300px}}
+:root{--bg:#02010a;--pn:#050512;--ln:#1e3543;--ln2:#16203a;--tx:#c9d6d0;--mut:#5c6a74;--blue:#3a76e6;--org:#f0962f;--grn:#3bd98c;--ind:#4944cd;--pur:#9541e4;--pink:#df1e8a;--red:#df2f26;--cyan:#49c3cd;--amb:#daa72a}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--tx);font:11px/1.35 'JetBrains Mono',ui-monospace,monospace}
+.sans{font-family:Inter,system-ui,sans-serif}.mut{color:var(--mut)}.up{color:var(--grn)}.dn{color:var(--red)}.ph{color:var(--mut);font-style:italic}
+b{font-weight:800}
+/* header */
+#top{display:flex;align-items:center;gap:18px;padding:8px 14px;height:62px}
+.logo{display:flex;gap:10px;align-items:center}.logo img{width:34px;height:34px}.logo .n{font:800 24px Inter;letter-spacing:.5px;color:#fff}.logo .n span{font-weight:400;color:#cfd3e0}.logo .s{font-size:9px;color:var(--mut);letter-spacing:1px}
+nav{display:flex;gap:18px;font-weight:800;font-size:11px;letter-spacing:1px;margin-left:30px}nav span{color:#fff}nav .h{color:var(--grn);font-weight:600}
+.st{text-align:center;margin-left:auto}.st+.st{margin-left:0}.st b{display:block;font:800 18px Inter;color:#fff}.st i{font-style:normal;font-size:8px;color:var(--mut);letter-spacing:1px}
+.st.g b{color:var(--grn)}#clk{font:800 30px Inter;color:#fff;letter-spacing:1px}
+.tz{font:800 15px Inter;color:#fff;text-align:center}.tz i{display:block;font:400 8px 'JetBrains Mono';color:var(--mut)}
+.online{border:1px solid var(--grn);color:var(--grn);padding:6px 10px;border-radius:3px;font-weight:800;font-size:10px;line-height:1.1;box-shadow:0 0 10px #3bd98c44 inset}
+#stats{display:flex;gap:26px;align-items:center;padding:4px 14px;height:26px;white-space:nowrap;overflow:hidden;font-size:11px;letter-spacing:.5px;color:#d9e2dc}
+#stats .tag{border:1px solid var(--grn);color:var(--grn);padding:2px 8px;border-radius:3px;font-weight:800;box-shadow:0 0 8px #3bd98c55}
+#stats b{color:#fff}
+#wire{display:flex;align-items:center;height:30px;margin-top:2px;border-top:1px solid var(--ln2);border-bottom:1px solid var(--ln2);overflow:hidden;white-space:nowrap}
+#wire .lw{background:#fff;color:#000;font-weight:800;padding:4px 12px;letter-spacing:1px;z-index:2}
+#wiretrack{display:inline-flex;gap:28px;padding-left:20px;animation:mq 80s linear infinite}#wiretrack span{color:#8b98a2}#wiretrack .ag{font-weight:800}
+@keyframes mq{to{transform:translateX(-50%)}}
+#roster{display:grid;grid-template-columns:repeat(6,1fr);gap:0;height:92px;margin-top:30px;border-top:1px solid var(--ln2);border-bottom:1px solid var(--ln2)}
+.rc{display:flex;align-items:center;gap:10px;padding:8px 12px;border-right:1px solid var(--ln2);cursor:pointer;position:relative}
+.rc img{width:44px;height:44px;filter:drop-shadow(0 0 6px var(--c))}.rc .k{font-size:8px;color:var(--mut);letter-spacing:1px}.rc .nm{font:800 21px Inter;color:#fff;letter-spacing:.5px}
+.rc .stt{margin-left:auto;text-align:right;font-size:8px;color:var(--mut);letter-spacing:1px}.rc .stt b{display:block;color:var(--c)}
+.rc.act{border:1px solid var(--c);box-shadow:0 0 16px color-mix(in srgb,var(--c) 45%,transparent) inset}.rc.act:after{content:'';position:absolute;left:12px;right:12px;bottom:0;height:3px;background:var(--c);box-shadow:0 0 8px var(--c)}
+/* panels */
+.pn{background:var(--pn);border:1px solid var(--ln);border-radius:3px;position:relative;overflow:hidden}
+.pt{display:flex;align-items:center;gap:8px;padding:6px 10px;font-size:10px;letter-spacing:1px;white-space:nowrap}.pt b{color:#fff;font-weight:800;font-size:11px}.pt b:before{content:'◆ ';color:#fff}.pt .sub{color:var(--mut)}.pt .r{margin-left:auto;color:var(--mut)}
+#mind{height:660px;margin:6px 8px;border-color:var(--ln2)}
+#stage{position:absolute;inset:28px 0 0 0}#stage canvas{display:block;width:100%;height:100%}
+.mtl{position:absolute;left:14px;top:34px;z-index:3}.mtl i,.mtr i{font-style:normal;font-size:8px;color:var(--mut);letter-spacing:1px}.mtl b{display:block;font:800 26px Inter;color:#fff}
+.mtr{position:absolute;right:14px;top:34px;text-align:right;z-index:3}.mtr b{display:block;font:800 26px Inter;color:#fff}
+.mtc{position:absolute;left:50%;top:34px;transform:translateX(-50%);text-align:center;font-size:8px;color:var(--mut);z-index:3;letter-spacing:1px}.mtc b{color:#fff;font-size:10px}.mtc .g{color:var(--grn)}
+#sig{position:absolute;left:14px;top:92px;width:272px;z-index:3}.cap{display:flex;font-size:9px;color:#fff;font-weight:800;letter-spacing:1px;margin-bottom:4px}.cap span{margin-left:auto;color:var(--grn);font-weight:400}
+.sc{border:1px solid var(--c);border-radius:3px;background:#05061acc;padding:6px 8px;height:84px;margin-bottom:6px;box-shadow:0 0 10px color-mix(in srgb,var(--c) 35%,transparent);position:relative}
+.sc .l{font-size:8px;color:#d9e2dc;letter-spacing:1px}.sc .v{position:absolute;right:8px;top:4px;font:800 18px Inter;color:var(--c)}.sc .d{position:absolute;right:8px;top:28px;font-size:8px}
+.sc:after{content:'';position:absolute;left:100%;top:50%;width:120px;height:2px;background:linear-gradient(90deg,var(--c),transparent);box-shadow:0 0 8px var(--c);opacity:.8}.sc .bar{position:absolute;left:8px;right:40px;bottom:12px;height:4px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--c))}.sc .dot{position:absolute;bottom:9px;width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 10px var(--c),0 0 20px var(--c)}
+#cmd{position:absolute;right:14px;top:96px;width:272px;z-index:3}
+.box{border:1px solid var(--c,var(--ln));border-radius:3px;background:#05061acc;padding:8px;margin-bottom:8px;box-shadow:0 0 12px color-mix(in srgb,var(--c,#1e3543) 30%,transparent)}
+.box h5{margin:0 0 6px;font-size:8px;letter-spacing:1px;color:var(--c,var(--mut));font-weight:800}
+.kv{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #121a2c;font-size:9px}.kv b{color:#fff;font-size:12px;font-family:Inter}
+#grid{display:grid;grid-template-columns:540px 430px 1fr;grid-template-rows:355px 72px 368px;gap:8px;margin:8px 8px 0}
+#pnl{grid-column:1;grid-row:1/3}#pricer{grid-column:2;grid-row:1}#spec{grid-column:3;grid-row:1}#trace{grid-column:1;grid-row:3;border-color:var(--red);box-shadow:0 0 14px #df2f2644 inset}#tape{grid-column:2/4;grid-row:2/4}
+.big{font:900 54px Inter;color:var(--grn);text-shadow:0 0 18px #3bd98c66;line-height:1}.big sup{font-size:26px}
+.row4{display:grid;grid-template-columns:repeat(4,1fr);padding:4px 12px}.row4 i{font-style:normal;font-size:8px;color:var(--mut);letter-spacing:1px}.row4 b{display:block;font:800 18px Inter;color:#fff}
+canvas.cv{display:block;width:100%}
+.hb{display:flex;align-items:center;gap:6px;font-size:8px;margin:4px 0}.hb .t{height:8px;flex:1;background:#111a2c;position:relative}.hb .t s{position:absolute;left:0;top:0;bottom:0;background:var(--c);box-shadow:0 0 6px var(--c)}
+.trow{display:grid;grid-template-columns:52px 62px 1fr 120px;gap:6px;padding:5px 10px;border-bottom:1px solid #1a1222;font-size:9px;align-items:center}
+.pill{display:inline-block;padding:1px 5px;border-radius:2px;color:#000;font-weight:800;font-size:8px;background:var(--c)}
+.trow .rt{text-align:right;font:800 12px Inter;color:#fff}
+#ob .lv{display:flex;justify-content:space-between;position:relative;font-size:9px;padding:1px 4px;height:15px}.lv s{position:absolute;right:0;top:1px;bottom:1px;opacity:.55}
+#foot{display:flex;gap:30px;align-items:center;height:30px;margin-top:8px;border-top:1px solid var(--ln2);white-space:nowrap;overflow:hidden;font-size:10px;color:#9aa6ad}#foot .on{background:#fff;color:#000;font-weight:800;padding:7px 12px}#foot b{color:#fff}
+#tip{position:fixed;pointer-events:none;background:#000e;border:1px solid var(--cyan);padding:5px 8px;font-size:10px;display:none;z-index:9;max-width:260px}
+#drawer{position:fixed;right:0;top:0;height:100%;width:min(420px,100%);background:#05050ff5;border-left:2px solid var(--c,#49c3cd);transform:translateX(105%);transition:.3s;z-index:8;padding:14px;overflow:auto}#drawer.open{transform:none}#drawer h2{margin:0 0 4px;color:var(--c);font-family:Inter}#drawer .x{float:right;cursor:pointer;font-size:18px}
+table{width:100%;border-collapse:collapse}td,th{padding:3px 4px;text-align:right;border-bottom:1px solid #141a30}td:first-child,th:first-child{text-align:left}th{color:var(--mut);font-weight:400}
+a{color:var(--cyan)}
+.lbl3{position:absolute;font-size:8px;padding:1px 5px;border:1px solid var(--c);color:var(--c);background:#000a;pointer-events:none;white-space:nowrap;transform:translate(-50%,0);letter-spacing:1px;z-index:2}
+@media(max-width:900px){#top{flex-wrap:wrap;height:auto}nav,.st.hide{display:none}#clk{font-size:22px}#roster{grid-template-columns:repeat(3,1fr);height:auto}.rc .stt{display:none}
+#mind{height:auto;display:flex;flex-direction:column}#stage{position:relative;inset:auto;height:60vh;order:0;margin-top:70px}#sig,#cmd{position:relative;left:auto;right:auto;top:auto;width:auto;margin:8px}.mtc{display:none}
+#grid{grid-template-columns:1fr;grid-template-rows:auto}#pnl,#pricer,#spec,#trace,#tape{grid-column:1;grid-row:auto;min-height:380px}#tapeIn{grid-template-columns:1fr!important}}
 </style>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 </head><body>
-<header>
- <div class="logo">◈ QUANT DESK</div>
- <div class="kpi"><span>Clock (CT)</span><b id="clock">--</b></div>
- <div class="kpi"><span>Equity</span><b id="k-eq">--</b></div>
- <div class="kpi"><span>P&amp;L</span><b id="k-pnl">--</b></div>
- <div class="kpi"><span>Win rate</span><b id="k-wr">--</b></div>
- <div class="kpi"><span>Open pos</span><b id="k-pos">--</b></div>
- <div class="kpi"><span>Cycle</span><b id="k-cyc">--</b></div>
- <div class="roster" id="roster"></div>
-</header>
-<main>
- <div class="col">
-  <div class="pn"><h3>Equity curve</h3><canvas id="eqc" height="140" style="width:100%"></canvas><div id="eqnote" class="mut"></div></div>
-  <div class="pn"><h3>Positions</h3><div id="pos"></div></div>
+<div id="top">
+ <div class="logo"><img id="logoimg"><div><div class="n">QUANT <span>DESK</span></div><div class="s">5 AGENTS · ONE BOOK · STOCKS + CRYPTO<br>PAPER · $1,000 SEED</div></div></div>
+ <nav><span>MIND</span><span>TAPE</span><span>BOOK</span><a class="h" href="classic.html" style="text-decoration:none;color:var(--grn)">CLASSIC</a></nav>
+ <div class="st"><b id="h-eq">—</b><i>EQUITY · PAPER</i></div>
+ <div class="st g"><b id="h-pnl">—</b><i>P&amp;L SINCE OCT 21</i></div>
+ <div class="st hide"><b id="h-cyc">—</b><i>CYCLES</i></div>
+ <div id="clk">--:--:--</div><div class="tz">CT<i id="h-day">DAY —</i></div>
+ <div class="online">DESK<br>ONLINE</div>
+</div>
+<div id="stats"><span class="tag">● FIVE AGENTS LIVE</span><span>HOLDER <b id="s-hold">—</b></span><span>OPEN <b id="s-open">—</b> POSITIONS</span><span>WIN RATE <b id="s-wr">—</b></span><span>MAX DD <b id="s-dd">—</b></span><span>CASH <b id="s-cash">—</b></span><span>HUMAN INTERVENES <b>ONLY</b></span><span>REAL PRICES · <b>FAKE MONEY</b></span></div>
+<div id="wire"><span class="lw">LIVE WIRE</span><div style="overflow:hidden;flex:1"><div id="wiretrack"></div></div></div>
+<div id="roster"></div>
+<div class="pn" id="mind">
+ <div class="pt"><b>THE MIND</b><span class="sub">— THE ARMILLARY OF THE DESK · EQUATOR IS THE CLOCK · MERIDIAN IS THE PRICE · AGENTS IN ORBIT</span><span class="r" id="m-stage">REPLAYING CYCLE</span></div>
+ <div class="mtl"><i>BTC · COINBASE · LIVE</i><b id="m-btc">—</b><i id="m-btcd" class="dn"></i></div>
+ <div class="mtc">CYCLE <b id="m-cyc">—</b> · <span id="m-logs">—</span> NOTES IN LEDGER<br><b>MIND 01 · ARMILLARY OF THE DESK</b><br><span class="g">FIVE AGENTS IN ORBIT · ONE CLOCK · ONE BOOK</span></div>
+ <div class="mtr"><i>EQUITY · PAPER</i><b id="m-eq">—</b><i id="m-roi"></i></div>
+ <div id="stage"></div>
+ <div id="sig"><div class="cap">SIGNALS IN<span id="sigsub">—</span></div><div id="sigs"></div></div>
+ <div id="cmd"><div class="cap">COMMAND STACK<span style="color:var(--org)">HOLDS THE BOOK</span></div>
+  <div class="box" id="now"><h5>NOW ACTING</h5><div style="display:flex;gap:8px;align-items:center"><img id="nowimg" style="width:44px;height:44px"><div><div id="nown" class="sans" style="font-weight:800;font-size:16px">—</div><div id="nowm" class="mut" style="font-size:8px;max-height:34px;overflow:hidden">—</div></div></div><canvas class="cv" id="nowcv" height="46"></canvas></div>
+  <div class="box" id="tick" style="--c:var(--org)"><h5>LIVE TICKET</h5><div id="ticket"></div></div>
+  <div class="box" id="hand" style="--c:var(--cyan)"><h5>HANDOFF LOG</h5><div id="handoff"></div></div>
  </div>
- <div id="stage"><div id="bubble"></div><div id="stagehint">drag to orbit · scroll/pinch to zoom · tap a bot</div></div>
- <div class="col">
-  <div class="pn"><h3>Live decision feed</h3><div class="feed" id="feed"></div></div>
-  <div class="pn"><h3 style="color:var(--org)">Risk Manager vetoes</h3><div id="veto"></div></div>
+</div>
+<div id="grid">
+ <div class="pn" id="pnl"><div class="pt"><b>DESK PNL</b><span class="sub">— ONE BOOK · BALANCE HISTORY</span><span class="r"><span id="p-roi"></span> · DAY <span id="p-day">—</span></span></div>
+  <div style="padding:2px 12px;display:flex;align-items:center;gap:8px"><span style="color:var(--grn);font-weight:800">● QuantDesk</span><span class="mut">PAPER BOOK · 5 AGENTS</span><span style="margin-left:auto;border:1px solid var(--grn);color:var(--grn);padding:1px 6px;font-weight:800">LIVE</span></div>
+  <div style="display:flex;align-items:center;gap:14px;padding:4px 12px"><div class="big"><sup>$</sup><span id="p-eq">—</span></div><div><div id="p-pnl" style="border:1px solid var(--grn);padding:3px 10px;font:800 14px Inter;background:#0b2a1c">—</div><div class="mut" style="font-size:8px;margin-top:3px" id="p-sub">—</div></div></div>
+  <div class="row4"><div><i>TICKETS</i><b id="p-t">—</b></div><div><i>WIN RATE</i><b id="p-wr" class="up">—</b></div><div><i>OPEN P&amp;L</i><b id="p-up">—</b></div><div><i>MAX DD</i><b id="p-dd">—</b></div></div>
+  <canvas class="cv" id="eqcv" height="130"></canvas>
+  <div style="display:grid;grid-template-columns:150px 1fr;gap:10px;padding:4px 12px"><canvas class="cv" id="eqmini" height="70"></canvas><div id="expo"></div></div>
  </div>
- <div class="bottom">
-  <div class="pn"><h3>Signal heatmap</h3><div class="heat" id="heat"></div></div>
-  <div class="pn"><h3>Trades</h3><div id="trades"></div></div>
-  <div class="pn"><h3>Candles <select id="sym"></select></h3><canvas id="cdl" height="180" style="width:100%"></canvas></div>
+ <div class="pn" id="pricer"><div class="pt"><b>THE PRICER</b><span class="sub">— SPOT · VOL · DRIFT · P(UP)</span><span class="r" id="pr-n">—</span></div>
+  <div id="prtop" style="display:grid;grid-template-columns:repeat(5,1fr);padding:2px 10px;font-size:8px"></div>
+  <div style="display:grid;grid-template-columns:120px 1fr;gap:6px;padding:4px 10px"><div id="prcards"></div><canvas class="cv" id="bell" height="210"></canvas></div>
+  <div id="prbot" style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:0 10px"></div>
  </div>
-</main>
-<footer>Paper trading with fake money, real market prices. No brokerage, no real orders. Data refreshes every 60s · updated <span id="upd">--</span> · <a href="classic.html">Classic dashboard</a></footer>
-<div id="tip"></div>
-<div id="drawer"><span class="x" onclick="closeDrawer()">✕</span><div id="dr"></div></div>
+ <div class="pn" id="spec"><div class="pt"><b>SIGNAL SPECTROGRAM</b><span class="sub">— <span id="sp-n">—</span> TICKERS · 40D RETURNS</span></div>
+  <div id="sptop" style="display:grid;grid-template-columns:repeat(4,1fr);padding:2px 10px;font-size:8px"></div>
+  <div style="display:grid;grid-template-columns:1fr 92px;gap:4px;padding:4px 10px"><canvas class="cv" id="spcv" height="240"></canvas><div id="splab"></div></div>
+  <canvas class="cv" id="spline" height="40" style="padding:0 10px"></canvas>
+ </div>
+ <div class="pn" id="trace"><div class="pt"><b>THE TRACE</b><span class="sub">— EVERY STEP THE DESK TAKES</span><span class="r" style="color:#fff"><span id="tr-n">—</span> STEPS THIS CYCLE</span></div>
+  <div class="row4" id="trstat"></div><div id="trrows"></div></div>
+ <div class="pn" id="tape"><div class="pt"><b>THE TAPE</b><span class="sub">— BTC 1M · SMA · LIVE ORDER BOOK</span><span class="r" id="tp-r">—</span></div>
+  <div id="tapeIn" style="display:grid;grid-template-columns:1fr 190px;gap:8px;padding:0 10px">
+   <div><div style="display:flex;align-items:baseline;gap:10px"><span class="sans" style="font-weight:900;font-size:34px;color:#fff" id="tp-px">—</span><span id="tp-ch" style="border:1px solid var(--red);padding:1px 6px;font-weight:800">—</span><span class="mut" id="tp-src" style="font-size:8px"></span></div>
+    <canvas class="cv" id="tapecv" height="370"></canvas></div>
+   <div><div class="cap" style="margin-top:6px">ORDER BOOK<span id="ob-src" class="mut">—</span></div><div id="ob"></div></div>
+  </div></div>
+</div>
+<div id="foot"><span class="on">QUANT DESK · ONLINE</span><div style="overflow:hidden;flex:1"><div id="foottrack" style="display:inline-flex;gap:34px;animation:mq 60s linear infinite"></div></div></div>
+<div id="tip"></div><div id="drawer"><span class="x" onclick="closeDrawer()">✕</span><div id="dr"></div></div>
 <script type="module">
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 const AG=[
- {n:'Research Analyst',c:'#b066ff',f:'wizard',tgt:'heat'},
- {n:'Quant Strategist',c:'#39ff88',f:'alien',tgt:'heat'},
- {n:'Risk Manager',c:'#2fa8ff',f:'spartan',tgt:'veto'},
- {n:'Trader',c:'#ff9a2f',f:'cyclops',tgt:'pos'},
- {n:'Portfolio Reporter',c:'#ffe23a',f:'mask',tgt:'eqc'}];
-function drawFace(a,S=256){const cv=document.createElement('canvas');cv.width=cv.height=S;const x=cv.getContext('2d');x.scale(S/100,S/100);
- x.lineJoin='round';x.lineCap='round';const c=a.c;x.shadowColor=c;x.shadowBlur=8;x.strokeStyle=c;x.lineWidth=3;x.fillStyle=c+'33';
- const P=(pts,fill=true)=>{x.beginPath();pts.forEach((q,i)=>i?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1]));x.closePath();if(fill)x.fill();x.stroke()};
- const eye=(cx,cy,w,h)=>{x.save();x.fillStyle='#fff';x.shadowColor='#fff';x.shadowBlur=10;x.fillRect(cx-w/2,cy-h/2,w,h);x.restore()};
- if(a.f=='wizard'){P([[50,4],[74,52],[26,52]]);P([[14,56],[86,56],[78,48],[22,48]]);P([[30,58],[70,58],[64,88],[50,96],[36,88]]);eye(42,70,7,3);eye(58,70,7,3);x.beginPath();x.moveTo(44,22);x.lineTo(56,34);x.moveTo(56,22);x.lineTo(44,34);x.stroke()}
- if(a.f=='alien'){P([[50,6],[84,28],[78,62],[50,94],[22,62],[16,28]]);x.save();x.fillStyle='#000c';P([[24,36],[46,42],[42,58],[26,50]]);P([[76,36],[54,42],[58,58],[74,50]]);x.restore();eye(36,47,8,4);eye(64,47,8,4);x.beginPath();x.moveTo(30,8);x.lineTo(22,0);x.moveTo(70,8);x.lineTo(78,0);x.stroke()}
- if(a.f=='spartan'){P([[50,4],[56,14],[44,14]]);P([[22,22],[50,12],[78,22],[82,60],[66,94],[58,94],[58,60],[42,60],[42,94],[34,94],[18,60]]);x.save();x.fillStyle='#000d';x.fillRect(28,38,44,8);x.fillRect(46,38,8,40);x.restore();eye(36,42,8,4);eye(64,42,8,4);x.beginPath();x.moveTo(50,12);x.quadraticCurveTo(80,-2,96,20);x.stroke()}
- if(a.f=='cyclops'){P([[20,24],[50,8],[80,24],[84,66],[66,90],[34,90],[16,66]]);x.save();x.fillStyle='#000d';x.beginPath();x.arc(50,46,15,0,7);x.fill();x.restore();x.beginPath();x.arc(50,46,15,0,7);x.stroke();x.save();x.fillStyle='#fff';x.shadowColor='#fff';x.shadowBlur=14;x.beginPath();x.arc(50,46,6,0,7);x.fill();x.restore();for(let i=0;i<4;i++){x.beginPath();x.moveTo(34+i*10,74);x.lineTo(34+i*10,84);x.stroke()}}
- if(a.f=='mask'){P([[50,8],[82,18],[86,50],[70,84],[50,94],[30,84],[14,50],[18,18]]);x.save();x.fillStyle='#000d';P([[24,38],[44,36],[42,48],[26,48]]);P([[76,38],[56,36],[58,48],[74,48]]);x.restore();eye(34,42,6,3);eye(66,42,6,3);x.beginPath();x.moveTo(36,70);x.quadraticCurveTo(50,80,64,70);x.stroke();x.beginPath();x.moveTo(50,16);x.lineTo(50,30);x.stroke()}
- return cv}
-AG.forEach(a=>{a.cv=drawFace(a);a.i=`<img src="${a.cv.toDataURL()}" style="width:18px;height:18px;vertical-align:middle">`});
-const $=id=>document.getElementById(id);
+ {n:'Research Analyst',code:'SPOTTER',k:'01 · SCAN',c:'#3bd98c',sh:'circle',tgt:'spec'},
+ {n:'Quant Strategist',code:'PRIOR',k:'02 · PRICING',c:'#f0962f',sh:'leaf',tgt:'pricer'},
+ {n:'Risk Manager',code:'KELLY',k:'03 · SIZING',c:'#9541e4',sh:'drop',tgt:'sig'},
+ {n:'Trader',code:'TAKER',k:'04 · EXECUTION',c:'#3a76e6',sh:'pill',tgt:'tape'},
+ {n:'Portfolio Reporter',code:'CLOSER',k:'05 · SETTLEMENT',c:'#df2f26',sh:'circle',tgt:'pnl'}];
+const CORE={n:'The Mind',code:'MIND',k:'00 · CORE',c:'#ffffff',sh:'core'};
+function face(a,S=256){const cv=document.createElement('canvas');cv.width=cv.height=S;const x=cv.getContext('2d');x.scale(S/100,S/100);
+ x.fillStyle=a.c;x.shadowColor=a.c;x.shadowBlur=a.sh=='core'?6:10;x.beginPath();
+ if(a.sh=='circle')x.arc(50,50,36,0,7);
+ if(a.sh=='pill')x.roundRect(8,24,84,54,26);
+ if(a.sh=='leaf')x.ellipse(50,52,24,42,0,0,7);
+ if(a.sh=='drop'){x.moveTo(50,10);x.bezierCurveTo(78,30,90,52,84,68);x.bezierCurveTo(78,92,22,92,16,68);x.bezierCurveTo(10,52,22,30,50,10)}
+ if(a.sh=='tri'){x.moveTo(50,12);x.quadraticCurveTo(56,12,90,78);x.quadraticCurveTo(92,86,82,86);x.lineTo(18,86);x.quadraticCurveTo(8,86,10,78);x.quadraticCurveTo(44,12,50,12)}
+ if(a.sh=='core')x.arc(50,50,42,0,7);
+ x.fill();x.shadowBlur=0;x.fillStyle=a.sh=='core'?'#000':'#fff';x.lineCap='round';
+ const ey=a.sh=='leaf'?[[43,52],[57,52]]:[[40,56],[60,56]],h=a.sh=='leaf'?18:16;
+ ey.forEach(([cx,cy],i)=>{x.save();x.translate(cx,cy);x.rotate(i?.28:-.28);x.beginPath();x.roundRect(-3.6,-h/2,7.2,h,3.6);x.fill();x.restore()});return cv}
+AG.forEach(a=>{a.cv=face(a);a.img=a.cv.toDataURL()});CORE.img=face(CORE).toDataURL();
+const $=id=>document.getElementById(id);$('logoimg').src=CORE.img;
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const money=v=>v==null||isNaN(v)?'—':'$'+(+v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
-const pct=v=>v==null||isNaN(v)?'—':((v>=0?'+':'')+(v*100).toFixed(2)+'%');
+const money=(v,d=2)=>v==null||isNaN(v)?'—':(v<0?'-':'')+'$'+Math.abs(+v).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const pct=(v,d=2)=>v==null||isNaN(v)?'—':((v>=0?'+':'')+(v*100).toFixed(d)+'%');
 const cls=v=>v==null?'':v>=0?'up':'dn';
-const fmtT=s=>{try{return new Date(s).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' CT'}catch(e){return s}};
-let S=null,C=null,EQ=[],lastCycle=null;
+const fmtT=s=>{try{return new Date(s).toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit'})}catch(e){return s}};
+const fmtD=s=>{try{return new Date(s).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' CT'}catch(e){return s}};
+let S=null,C=null,EQ=[],lastCycle=null,BTC=null,BTC24=null,KL=null,BOOK=null,actingK=null;
 // tooltip
-const tip=$('tip');function showTip(e,h){tip.innerHTML=h;tip.style.display='block';tip.style.left=Math.min(e.clientX+12,innerWidth-270)+'px';tip.style.top=(e.clientY+12)+'px'}
-function hideTip(){tip.style.display='none'}
-document.addEventListener('mouseover',e=>{const t=e.target.closest('[data-tip]');if(t)showTip(e,t.dataset.tip)});
-document.addEventListener('mousemove',e=>{const t=e.target.closest('[data-tip]');if(t)showTip(e,t.dataset.tip);else if(!hovBot)hideTip()});
+const tip=$('tip');function showTip(e,h){tip.innerHTML=h;tip.style.display='block';tip.style.left=Math.min(e.clientX+12,innerWidth-270)+'px';tip.style.top=(e.clientY+12)+'px'}function hideTip(){tip.style.display='none'}
+document.addEventListener('mousemove',e=>{const t=e.target.closest('[data-tip]');if(t)showTip(e,t.dataset.tip);else if(hovBot==null)hideTip()});
+setInterval(()=>$('clk').textContent=new Date().toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour12:false}),1000);
 // roster
-$('roster').innerHTML=AG.map((a,k)=>`<div class="ag" id="ag${k}" style="--c:${a.c}" data-k="${k}">${a.i} ${a.n}</div>`).join('');
-document.querySelectorAll('.ag').forEach(el=>el.onclick=()=>openAgent(+el.dataset.k));
-setInterval(()=>$('clock').textContent=new Date().toLocaleTimeString('en-US',{timeZone:'America/Chicago'}),1000);
-// drawer
-window.closeDrawer=()=>{$('drawer').classList.remove('open');document.querySelectorAll('.ag').forEach(e=>e.classList.remove('on'))};
-function openAgent(k){const a=AG[k],d=$('drawer');d.style.setProperty('--c',a.c);
- document.querySelectorAll('.ag').forEach((e,j)=>e.classList.toggle('on',j==k));
- if(!S){$('dr').innerHTML='<p class="ph">No ledger data yet.</p>';d.classList.add('open');return}
- const logs=(S.log||[]).filter(l=>l.agent==a.n).slice(-12).reverse();
- const cur=S.agents?.[a.n];let extra='';
- if(a.n=='Quant Strategist'&&S.backtest){extra='<h4>Backtest ('+esc(S.backtest.window)+')</h4><table><tr><th>Rule</th><th>Trades</th><th>Win</th><th>Avg</th></tr>'+Object.entries(S.backtest.summary).map(([r,v])=>`<tr><td>${r}</td><td>${v.trades}</td><td>${v.win_rate==null?'—':(v.win_rate*100).toFixed(0)+'%'}</td><td class="${cls(v.avg_ret)}">${pct(v.avg_ret)}</td></tr>`).join('')+'</table>'}
- if(a.n=='Risk Manager'){extra='<h4>Signals this cycle</h4>'+((S.signals||[]).length?'<table><tr><th>Ticker</th><th>Rule</th><th>Status</th><th>Note</th></tr>'+S.signals.map(s=>`<tr><td>${s.ticker}</td><td>${s.signal}</td><td>${s.status}</td><td>${esc(s.reason||(s.notional?money(s.notional):''))}</td></tr>`).join('')+'</table>':'<p class="ph">No signals.</p>')+`<p>Kill switch: ${S.killed?'<b class=dn>ACTIVE</b>':'off'}</p>`}
- if(a.n=='Research Analyst'&&S.research){extra='<h4>Momentum ranking (20d)</h4><table><tr><th>Ticker</th><th>20d</th><th>60d</th><th>Vol</th></tr>'+S.research.rank.map(t=>{const x=S.research.scan[t];return `<tr><td>${t}</td><td class="${cls(x.mom20)}">${pct(x.mom20)}</td><td class="${cls(x.mom60)}">${pct(x.mom60)}</td><td>${(x.vol20*100).toFixed(0)}%</td></tr>`}).join('')+'</table>'}
- if(a.n=='Trader'){const tr=(S.trades||[]).slice(-10).reverse();extra='<h4>Recent fills</h4>'+(tr.length?'<table>'+tr.map(t=>`<tr><td>${t.side} ${t.ticker}</td><td>${money(t.price)}</td><td class="${cls(t.pnl)}">${t.pnl==null?'':money(t.pnl)}</td><td class=mut>${fmtT(t.ts)}</td></tr>`).join('')+'</table>':'<p class="ph">No fills yet.</p>')}
- if(a.n=='Portfolio Reporter'&&S.stats){const s=S.stats;extra=`<h4>Stats</h4><table><tr><td>Equity</td><td>${money(s.equity)}</td></tr><tr><td>Cash</td><td>${money(s.cash)}</td></tr><tr><td>P&L</td><td class="${cls(s.pnl)}">${money(s.pnl)} (${pct(s.roi)})</td></tr><tr><td>Max drawdown</td><td>${pct(s.max_dd)}</td></tr><tr><td>Day</td><td>${s.day} of ${s.days}</td></tr></table>`}
- $('dr').innerHTML=`<h2>${a.i} ${a.n}</h2><div class="mut">Latest: ${cur?fmtT(cur.ts):'—'}</div><p style="font-size:13px">${cur?esc(cur.msg):'<span class=ph>No note logged yet.</span>'}</p>${extra}<h4>Recent notes</h4>`+(logs.length?logs.map(l=>`<div class="feed"><div><span class=mut>${fmtT(l.ts)}</span><br>${esc(l.msg)}</div></div>`).join(''):'<p class=ph>None yet.</p>');
- d.classList.add('open')}
+function roster(){$('roster').innerHTML=[...AG,CORE].map((a,k)=>{const last=S?.agents?.[a.n];const st=k==actingK?'RUN':(last?'IDLE':'—');
+ return `<div class="rc ${k==actingK?'act':''}" style="--c:${a.c}" data-k="${k}" data-tip="${esc(a.n)}: ${esc(last?last.msg:'core of the desk')}"><img src="${a.img}"><div><div class="k">${a.k}</div><div class="nm">${a.code}</div></div><div class="stt"><b>${st}</b>${k<5?esc(a.n.split(' ')[0].toUpperCase()):'ALL AGENTS'}</div></div>`}).join('');
+ document.querySelectorAll('.rc').forEach(el=>el.onclick=()=>+el.dataset.k<5&&openAgent(+el.dataset.k))}
+window.closeDrawer=()=>$('drawer').classList.remove('open');
+function openAgent(k){const a=AG[k],d=$('drawer');d.style.setProperty('--c',a.c);const cur=S?.agents?.[a.n];const logs=(S?.log||[]).filter(l=>l.agent==a.n).slice(-12).reverse();
+ $('dr').innerHTML=`<h2><img src="${a.img}" style="width:30px;vertical-align:middle"> ${a.code} · ${a.n}</h2><div class="mut">Latest: ${cur?fmtD(cur.ts):'—'}</div><p style="font-size:13px">${cur?esc(cur.msg):'<span class=ph>No note yet.</span>'}</p><h4>Recent notes</h4>`+(logs.map(l=>`<div style="padding:4px 0;border-bottom:1px dashed #1e3543"><span class=mut>${fmtD(l.ts)}</span><br>${esc(l.msg)}</div>`).join('')||'<p class=ph>None.</p>');d.classList.add('open')}
 // ---------- 3D ----------
 const stage=$('stage');const R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));stage.appendChild(R.domElement);
-const scene=new THREE.Scene();scene.fog=null;0&&new THREE.FogExp2(0x05060a,0.035);
-const cam=new THREE.PerspectiveCamera(55,1,.1,200);cam.position.set(0,5,13);
-const ctl=new OrbitControls(cam,R.domElement);ctl.enableDamping=true;ctl.enablePan=false;ctl.minDistance=7;ctl.maxDistance=24;ctl.autoRotate=true;ctl.autoRotateSpeed=.4;
-scene.add(new THREE.AmbientLight(0x6060a0,.6));const pl=new THREE.PointLight(0xff44ee,40,40);scene.add(pl);
+const scene=new THREE.Scene();const cam=new THREE.PerspectiveCamera(42,1,.1,200);cam.position.set(0,1.6,14);
+const ctl=new OrbitControls(cam,R.domElement);ctl.enableDamping=true;ctl.enablePan=false;ctl.minDistance=8;ctl.maxDistance=30;ctl.autoRotate=true;ctl.autoRotateSpeed=.35;
+scene.add(new THREE.AmbientLight(0xffffff,.8));
+const glowTex=(()=>{const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d');const g=x.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,'#fff');g.addColorStop(.25,'#ffffff66');g.addColorStop(1,'#fff0');x.fillStyle=g;x.fillRect(0,0,128,128);return new THREE.CanvasTexture(c)})();
+// network globe
+const GR=4.3;const globe=new THREE.Group();scene.add(globe);
+{const N=420,pts=[];for(let i=0;i<N;i++){const y=1-2*(i+.5)/N,r=Math.sqrt(1-y*y),th=i*2.39996;pts.push(new THREE.Vector3(Math.cos(th)*r,y,Math.sin(th)*r).multiplyScalar(GR))}
+ const seg=[],col=[],pal=[new THREE.Color('#df1e8a'),new THREE.Color('#9541e4'),new THREE.Color('#c86bff'),new THREE.Color('#49c3cd'),new THREE.Color('#f0962f')];
+ pts.forEach((p,i)=>{const near=pts.map((q,j)=>[p.distanceTo(q),j]).sort((a,b)=>a[0]-b[0]).slice(1,4);near.forEach(([d,j])=>{if(j>i){seg.push(p.x,p.y,p.z,pts[j].x,pts[j].y,pts[j].z);const c=pal[Math.random()<.08?4:Math.random()<.12?3:Math.floor(Math.random()*3)];col.push(c.r,c.g,c.b,c.r,c.g,c.b)}})});
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(seg,3));g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
+ globe.add(new THREE.LineSegments(g,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.9,blending:THREE.AdditiveBlending})));
+ const pg=new THREE.BufferGeometry().setFromPoints(pts);globe.add(new THREE.Points(pg,new THREE.PointsMaterial({map:glowTex,color:0xffd6ff,size:.34,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false})));
+ // meridians
+ for(let k=0;k<6;k++){const c=new THREE.Mesh(new THREE.TorusGeometry(GR*1.01,.006,4,120),new THREE.MeshBasicMaterial({color:0x8a7bff,transparent:true,opacity:.25}));c.rotation.y=k*Math.PI/6;globe.add(c)}}
+const eq=new THREE.Mesh(new THREE.TorusGeometry(GR*1.12,.03,8,200),new THREE.MeshBasicMaterial({color:0x49e3ff,transparent:true,opacity:.9}));eq.rotation.x=Math.PI/2+.12;scene.add(eq);
+const eqGlow=new THREE.Mesh(new THREE.TorusGeometry(GR*1.12,.1,8,200),new THREE.MeshBasicMaterial({color:0x49c3cd,transparent:true,opacity:.22,blending:THREE.AdditiveBlending}));eqGlow.rotation.copy(eq.rotation);scene.add(eqGlow);
+{const g=new THREE.BufferGeometry(),p=[];for(let i=0;i<700;i++)p.push((Math.random()-.5)*90,(Math.random()-.5)*60,(Math.random()-.5)*90-20);g.setAttribute('position',new THREE.Float32BufferAttribute(p,3));scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0x334466,size:.06})))}
+// core face
 const core=new THREE.Group();scene.add(core);
-const headM=new THREE.Mesh(new THREE.SphereGeometry(1.2,48,48),new THREE.MeshStandardMaterial({color:0xffffff,emissive:0xffffff,emissiveIntensity:1.1,roughness:.4}));core.add(headM);
-const eyeG=new THREE.BoxGeometry(.2,.62,.12),eyeMat=new THREE.MeshBasicMaterial({color:0x000000});
-const eyes=[-.3,.3].map(dx=>{const e=new THREE.Mesh(eyeG,eyeMat);e.position.set(dx*1.1,.12,1.16);core.add(e);return e});
-const coreGlow=new THREE.Sprite(new THREE.SpriteMaterial({color:0xffffff,transparent:true,opacity:.35,blending:THREE.AdditiveBlending,depthWrite:false}));coreGlow.renderOrder=-1;scene.add(coreGlow);
-let lookTarget=new THREE.Vector3(0,0,10),focusK=null,focusUntil=0,react=0,squint=0,nextBlink=2,blinkT=-1;
-const curLook=new THREE.Vector3(0,0,10);
-const halo=new THREE.Mesh(new THREE.SphereGeometry(1.6,32,32),new THREE.MeshBasicMaterial({color:0x2fd4ff,transparent:true,opacity:.12,blending:THREE.AdditiveBlending}));scene.add(halo);
-const globe=new THREE.Mesh(new THREE.IcosahedronGeometry(3.4,2),new THREE.MeshBasicMaterial({color:0xa066ff,wireframe:true,transparent:true,opacity:.35}));scene.add(globe);
-const ring=new THREE.Mesh(new THREE.TorusGeometry(5.6,.02,8,160),new THREE.MeshBasicMaterial({color:0x2fd4ff,transparent:true,opacity:.4}));ring.rotation.x=Math.PI/2;scene.add(ring);
-// stars
-{const g=new THREE.BufferGeometry(),p=[];for(let i=0;i<900;i++)p.push((Math.random()-.5)*80,(Math.random()-.5)*50,(Math.random()-.5)*80);g.setAttribute('position',new THREE.Float32BufferAttribute(p,3));scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0x5566aa,size:.08})))}
-const glowTex=(()=>{const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d');const g=x.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,'#fff');g.addColorStop(.3,'#ffffff55');g.addColorStop(1,'#fff0');x.fillStyle=g;x.fillRect(0,0,128,128);return new THREE.CanvasTexture(c)})();
+const headM=new THREE.Mesh(new THREE.SphereGeometry(1.55,64,64),new THREE.MeshStandardMaterial({color:0xf4f4f8,emissive:0xd8d8e4,emissiveIntensity:.75,roughness:.9}));core.add(headM);
+const eyeG=new THREE.CapsuleGeometry(.12,.42,6,12),eyeMat=new THREE.MeshBasicMaterial({color:0x050505});
+const eyes=[-.36,.36].map((dx,i)=>{const e=new THREE.Mesh(eyeG,eyeMat);e.position.set(dx,-.2,1.5);e.rotation.z=i?.3:-.3;core.add(e);return e});
+const coreGlow=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,color:0xffffff,transparent:true,opacity:.35,blending:THREE.AdditiveBlending,depthWrite:false}));coreGlow.renderOrder=-1;scene.add(coreGlow);
+let focusK=null,focusUntil=0,react=0,squint=0,nextBlink=2,blinkT=-1;const lookTarget=new THREE.Vector3(),curLook=new THREE.Vector3(0,0,10);
+// bots
+const SCL={circle:1.3,pill:2.0,leaf:1.5,drop:1.3,tri:1.3};
 const bots=AG.map((a,k)=>{const col=new THREE.Color(a.c);const tex=new THREE.CanvasTexture(a.cv);tex.colorSpace=THREE.SRGBColorSpace;
- const m=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false}));m.scale.setScalar(1.3);m.userData.k=k;scene.add(m);
- const gl=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,color:col,transparent:true,opacity:.35,blending:THREE.AdditiveBlending,depthWrite:false}));gl.scale.setScalar(2.4);scene.add(gl);
- const N=60,tg=new THREE.BufferGeometry();tg.setAttribute('position',new THREE.Float32BufferAttribute(new Array(N*3).fill(0),3));
- const trail=new THREE.Points(tg,new THREE.PointsMaterial({color:col,size:.07,transparent:true,opacity:.7}));scene.add(trail);
- return {m,gl,trail,N,hist:[],r:4.6+(k%2)*1.0,sp:.25+k*.05,ph:k*2*Math.PI/5,tilt:(k-2)*.18,flash:0}});
+ const m=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false}));const s0=SCL[a.sh];m.scale.setScalar(s0);m.userData.k=k;scene.add(m);
+ const gl=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,color:col,transparent:true,opacity:.3,blending:THREE.AdditiveBlending,depthWrite:false}));gl.scale.setScalar(s0*2);scene.add(gl);
+ const N=90,tg=new THREE.BufferGeometry();tg.setAttribute('position',new THREE.Float32BufferAttribute(new Array(N*3).fill(0),3));
+ const trail=new THREE.Points(tg,new THREE.PointsMaterial({color:col,size:.06,transparent:true,opacity:.8,blending:THREE.AdditiveBlending}));scene.add(trail);
+ const lb=document.createElement('div');lb.className='lbl3';lb.style.setProperty('--c',a.c);lb.textContent=a.code;stage.appendChild(lb);
+ {const rr=[5.6,6.4,5.2,6.9,5.9][k],inc=[.35,-.2,.55,.12,-.45][k];const o=new THREE.Mesh(new THREE.TorusGeometry(rr,.008,4,160),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.18}));o.rotation.x=Math.PI/2+inc;scene.add(o)}
+ return {m,gl,trail,N,hist:[],s0,lb,r:[5.6,6.4,5.2,6.9,5.9][k],sp:[.16,.12,.2,.1,.14][k],ph:k*1.256,inc:[.35,-.2,.55,.12,-.45][k],flash:0}});
 const lasers=[];
-function laser(from,to,color,dur=1.1){const g=new THREE.BufferGeometry().setFromPoints([from.clone(),to.clone()]);const l=new THREE.Line(g,new THREE.LineBasicMaterial({color,transparent:true,opacity:1,blending:THREE.AdditiveBlending}));scene.add(l);
- const s=new THREE.Mesh(new THREE.SphereGeometry(.09,8,8),new THREE.MeshBasicMaterial({color}));scene.add(s);lasers.push({l,s,from:from.clone(),to:to.clone(),t:0,dur})}
-function edgePoint(panelId){// project side-panel center into scene at stage edge
- const el=$(panelId);const sr=stage.getBoundingClientRect(),pr=el?el.getBoundingClientRect():sr;
- let x=((pr.left+pr.width/2)-sr.left)/sr.width*2-1,y=-(((pr.top+pr.height/2)-sr.top)/sr.height*2-1);x=Math.max(-1.05,Math.min(1.05,x));y=Math.max(-1.05,Math.min(1.05,y));
- const v=new THREE.Vector3(x,y,.5).unproject(cam);const dir=v.sub(cam.position).normalize();return cam.position.clone().add(dir.multiplyScalar(9))}
+function laser(from,to,color,dur=1.1){const mid=from.clone().add(to).multiplyScalar(.5).add(new THREE.Vector3(0,.8,0));const curve=new THREE.QuadraticBezierCurve3(from.clone(),mid,to.clone());
+ const g=new THREE.BufferGeometry().setFromPoints(curve.getPoints(40));const l=new THREE.Line(g,new THREE.LineBasicMaterial({color,transparent:true,opacity:1,blending:THREE.AdditiveBlending}));scene.add(l);
+ const s=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,color,blending:THREE.AdditiveBlending,depthWrite:false}));s.scale.setScalar(.6);scene.add(s);lasers.push({l,s,curve,t:0,dur})}
+function edgePoint(id){const el=$(id);const sr=stage.getBoundingClientRect(),pr=el?el.getBoundingClientRect():sr;let x=((pr.left+pr.width/2)-sr.left)/sr.width*2-1,y=-(((pr.top+pr.height/2)-sr.top)/sr.height*2-1);x=Math.max(-1.1,Math.min(1.1,x));y=Math.max(-1.1,Math.min(1.1,y));
+ const v=new THREE.Vector3(x,y,.5).unproject(cam);return cam.position.clone().add(v.sub(cam.position).normalize().multiplyScalar(10))}
 const ray=new THREE.Raycaster(),mp=new THREE.Vector2();let hovBot=null,downAt=null;
-function pick(e){const r=R.domElement.getBoundingClientRect();mp.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(mp,cam);const h=ray.intersectObjects(bots.map(b=>b.m),false)[0];return h?h.object.userData.k:null}
-R.domElement.addEventListener('pointermove',e=>{const k=pick(e);hovBot=k;R.domElement.style.cursor=k==null?'grab':'pointer';if(k!=null){const a=AG[k],c=S?.agents?.[a.n];showTip(e,`<b style="color:${a.c}">${a.i} ${a.n}</b><br>${esc(c?c.msg:'No note yet')}`)}else hideTip()});
+function pick(e){const r=R.domElement.getBoundingClientRect();mp.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(mp,cam);const h=ray.intersectObjects(bots.flatMap(b=>[b.m,b.gl]),false)[0];return h?bots.findIndex(b=>b.m==h.object||b.gl==h.object):null}
+R.domElement.addEventListener('pointermove',e=>{const k=pick(e);hovBot=k;R.domElement.style.cursor=k==null?'grab':'pointer';if(k!=null){const a=AG[k];showTip(e,`<b style="color:${a.c}">${a.code} · ${a.n}</b><br>${esc(S?.agents?.[a.n]?.msg||'No note yet')}`)}else hideTip()});
 R.domElement.addEventListener('pointerdown',e=>downAt=[e.clientX,e.clientY]);
 R.domElement.addEventListener('pointerup',e=>{if(downAt&&Math.hypot(e.clientX-downAt[0],e.clientY-downAt[1])<6){const k=pick(e);if(k!=null)openAgent(k)}downAt=null});
-R.domElement.addEventListener('pointerleave',()=>{hovBot=null;hideTip()});
-function resize(){const w=stage.clientWidth,h=stage.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();const need=w/h<1.2?14/Math.min(1,w/h*0.95):13;ctl.maxDistance=Math.max(24,need+6);cam.position.setLength(need)}
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();const a=w/h,need=a<1.3?14/Math.min(1,a*.9):12.8;cam.position.setLength(need)}
 new ResizeObserver(resize).observe(stage);resize();
-const clock=new THREE.Clock();
+const clock=new THREE.Clock();const tmp=new THREE.Vector3();
 (function loop(){const t=clock.getElapsedTime();
- coreGlow.material.map=coreGlow.material.map||glowTex;coreGlow.scale.setScalar(4.2+react*2);react*=.95;squint*=.95;
- const pulse=1+Math.sin(t*2.2)*.03+react*.18;core.scale.setScalar(pulse);headM.material.emissiveIntensity=1.1+react*1.5;
- let tk=focusK!=null&&t<focusUntil?focusK:Math.floor(t/4)%5;lookTarget.copy(bots[tk].m.position).normalize().multiplyScalar(6);lookTarget.lerp(cam.position,(focusK!=null&&t<focusUntil)?.45:.6);
+ globe.rotation.y=t*.08;eq.rotation.z=t*.05;
+ coreGlow.scale.setScalar(5+react*2.5+Math.sin(t*2)*.2);react*=.95;squint*=.95;
+ core.scale.setScalar(1+Math.sin(t*2)*.015+react*.15);headM.material.emissiveIntensity=.75+react*1.2;
+ const foc=focusK!=null&&t<focusUntil;const tk=foc?focusK:Math.floor(t/3.5)%5;lookTarget.copy(bots[tk].m.position).normalize().multiplyScalar(7);lookTarget.lerp(cam.position,foc?.4:.55);
  curLook.lerp(lookTarget,.06);core.lookAt(curLook);
- if(t>nextBlink&&blinkT<0){blinkT=0;nextBlink=t+2.5+Math.random()*4}let ey=1;if(blinkT>=0){blinkT+=.016;ey=Math.abs(Math.cos(blinkT*Math.PI/.25));if(blinkT>.25)blinkT=-1}
- eyes.forEach(e=>e.scale.y=Math.max(.08,ey*(1-squint*.75)));halo.scale.setScalar(1+Math.sin(t*2.2+1)*.12);
- globe.rotation.y=t*.12;globe.rotation.x=Math.sin(t*.1)*.2;ring.rotation.z=t*.05;
- bots.forEach(b=>{const a=b.ph+t*b.sp;const p=new THREE.Vector3(Math.cos(a)*b.r,Math.sin(a*1.3)*.8+b.tilt*4,Math.sin(a)*b.r);b.m.position.copy(p);b.gl.position.copy(p);
-  b.flash*=.97;b.m.scale.setScalar(1.3*(1+b.flash*.7));b.gl.material.opacity=.35+b.flash*.6;b.gl.scale.setScalar(2.4*(1+b.flash));
-  b.hist.unshift(p.clone());if(b.hist.length>b.N)b.hist.pop();const arr=b.trail.geometry.attributes.position.array;b.hist.forEach((q,i)=>{arr[i*3]=q.x;arr[i*3+1]=q.y;arr[i*3+2]=q.z});b.trail.geometry.attributes.position.needsUpdate=true});
- for(let i=lasers.length-1;i>=0;i--){const L=lasers[i];L.t+=.016/L.dur;L.s.position.lerpVectors(L.from,L.to,Math.min(L.t*1.6,1));L.l.material.opacity=Math.max(0,1-L.t);if(L.t>=1){scene.remove(L.l);scene.remove(L.s);lasers.splice(i,1)}}
+ if(t>nextBlink&&blinkT<0){blinkT=0;nextBlink=t+2.5+Math.random()*4}let ey=1;if(blinkT>=0){blinkT+=.016;ey=Math.abs(Math.cos(blinkT*Math.PI/.22));if(blinkT>.22)blinkT=-1}
+ eyes.forEach(e=>e.scale.y=Math.max(.1,ey*(1-squint*.7)));
+ const W=stage.clientWidth,H=stage.clientHeight;
+ bots.forEach(b=>{const a=b.ph+t*b.sp;tmp.set(Math.cos(a)*b.r,0,Math.sin(a)*b.r).applyAxisAngle(new THREE.Vector3(1,0,0),b.inc);const p=tmp.clone();b.m.position.copy(p);b.gl.position.copy(p);
+  b.flash*=.97;const sc=b.s0*(1+b.flash*.6);b.m.scale.setScalar(sc);b.gl.scale.setScalar(b.s0*2*(1+b.flash*1.2));b.gl.material.opacity=.3+b.flash*.6;
+  b.hist.unshift(p.clone());if(b.hist.length>b.N)b.hist.pop();const arr=b.trail.geometry.attributes.position.array;b.hist.forEach((q,i)=>{arr[i*3]=q.x;arr[i*3+1]=q.y;arr[i*3+2]=q.z});b.trail.geometry.attributes.position.needsUpdate=true;
+  const sp=p.clone().add(new THREE.Vector3(0,-sc*.62,0)).project(cam);b.lb.style.left=((sp.x+1)/2*W)+'px';b.lb.style.top=((1-sp.y)/2*H)+'px';b.lb.style.display=sp.z<1?'block':'none'});
+ for(let i=lasers.length-1;i>=0;i--){const L=lasers[i];L.t+=.016/L.dur;L.s.position.copy(L.curve.getPoint(Math.min(L.t*1.5,1)));L.l.material.opacity=Math.max(0,1-L.t);if(L.t>=1){scene.remove(L.l);scene.remove(L.s);lasers.splice(i,1)}}
  ctl.update();R.render(scene,cam);requestAnimationFrame(loop)})();
-// replay latest cycle
-let replayTimer=null;
-function replay(){if(!S)return;clearTimeout(replayTimer);const cyc=S.cycle_ts;
- let steps=(S.log||[]).filter(l=>l.cycle?l.cycle==cyc:(new Date(l.ts)>=new Date(cyc)));
- if(!steps.length)steps=AG.map(a=>S.agents?.[a.n]?{agent:a.n,msg:S.agents[a.n].msg}:null).filter(Boolean);
- steps.forEach((st,i)=>{replayTimer=setTimeout(()=>act(st,i,steps),i*1600)});
- replayTimer=setTimeout(replay,steps.length*1600+9000)}
-function act(st,i,steps){const k=AG.findIndex(a=>a.n==st.agent);if(k<0)return;const a=AG[k],b=bots[k];b.flash=1;focusK=k;focusUntil=clock.getElapsedTime()+1.6;
- if(/BOUGHT|SOLD/.test(st.msg))react=1;if(/vetoed [1-9]|VETO/.test(st.msg))squint=1;
- const el=$('ag'+k);el.classList.remove('pulse');void el.offsetWidth;el.classList.add('pulse');
+// replay
+let rT=[];function replay(){if(!S)return;rT.forEach(clearTimeout);rT=[];const cyc=S.cycle_ts;let st=(S.log||[]).filter(l=>l.cycle?l.cycle==cyc:new Date(l.ts)>=new Date(cyc));
+ if(!st.length)st=AG.map(a=>S.agents?.[a.n]&&{agent:a.n,msg:S.agents[a.n].msg,ts:S.agents[a.n].ts}).filter(Boolean);
+ $('tr-n').textContent=st.length;st.forEach((s,i)=>rT.push(setTimeout(()=>act(s,i,st),i*1800)));rT.push(setTimeout(replay,st.length*1800+8000))}
+function act(st,i,all){const k=AG.findIndex(a=>a.n==st.agent);if(k<0)return;const a=AG[k],b=bots[k];b.flash=1;focusK=k;focusUntil=clock.getElapsedTime()+1.8;actingK=k;roster();
+ if(/BOUGHT|SOLD/.test(st.msg))react=1;if(/vetoed [1-9]/.test(st.msg))squint=1;
  laser(b.m.position,core.position,a.c);setTimeout(()=>laser(core.position,b.m.position,'#ffffff',.8),250);
- const nxt=steps[i+1]&&AG.findIndex(x=>x.n==steps[i+1].agent);if(nxt>=0&&nxt!=k)setTimeout(()=>laser(b.m.position,bots[nxt].m.position,a.c,.9),400);
+ const nx=all[i+1]&&AG.findIndex(x=>x.n==all[i+1].agent);if(nx>=0&&nx!=k)setTimeout(()=>laser(b.m.position,bots[nx].m.position,a.c,.9),450);
  setTimeout(()=>laser(b.m.position,edgePoint(a.tgt),a.c,1),700);
- const bu=$('bubble');bu.style.borderColor=a.c;bu.innerHTML=`<b style="color:${a.c}">${a.i} ${a.n}</b><br>${esc(st.msg)}`;bu.style.opacity=1;clearTimeout(bu._t);bu._t=setTimeout(()=>bu.style.opacity=0,1500)}
-// ---------- 2D panels ----------
-function canvasCtx(cv){const w=cv.clientWidth,h=+cv.getAttribute('height');cv.width=w*devicePixelRatio;cv.height=h*devicePixelRatio;cv.style.height=h+'px';const x=cv.getContext('2d');x.scale(devicePixelRatio,devicePixelRatio);return [x,w,h]}
-function drawEq(){const cv=$('eqc'),[x,w,h]=canvasCtx(cv);if(EQ.length<2){x.fillStyle='#6b7499';x.fillText('Not enough data yet',10,20);return}
- const v=EQ.map(r=>r.eq),mn=Math.min(...v,1000),mx=Math.max(...v,1000),pad=(mx-mn)*.15||1,lo=mn-pad,hi=mx+pad;const X=i=>8+i/(v.length-1)*(w-16),Y=q=>h-14-(q-lo)/(hi-lo)*(h-24);
- x.strokeStyle='#1c2340';x.setLineDash([3,3]);x.beginPath();x.moveTo(0,Y(1000));x.lineTo(w,Y(1000));x.stroke();x.setLineDash([]);x.fillStyle='#6b7499';x.fillText('$1,000 start',4,Y(1000)-3);
- const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,'#39ff8855');g.addColorStop(1,'#39ff8800');x.beginPath();v.forEach((q,i)=>i?x.lineTo(X(i),Y(q)):x.moveTo(X(i),Y(q)));x.lineTo(X(v.length-1),h);x.lineTo(X(0),h);x.fillStyle=g;x.fill();
- x.beginPath();v.forEach((q,i)=>i?x.lineTo(X(i),Y(q)):x.moveTo(X(i),Y(q)));x.strokeStyle='#39ff88';x.lineWidth=2;x.shadowColor='#39ff88';x.shadowBlur=8;x.stroke();x.shadowBlur=0;
- cv.onmousemove=e=>{const r=cv.getBoundingClientRect(),i=Math.round((e.clientX-r.left-8)/(w-16)*(v.length-1));const q=EQ[Math.max(0,Math.min(v.length-1,i))];showTip(e,`${fmtT(q.ts)}<br>Equity ${money(q.eq)} (${pct(q.eq/1000-1)})`)};cv.onmouseleave=hideTip;
- $('eqnote').textContent=`${EQ.length} cycles · last ${money(v.at(-1))}`}
-function drawCandles(){const t=$('sym').value,cv=$('cdl'),[x,w,h]=canvasCtx(cv);const d=(C&&C[t]||[]).slice(-60);if(!d.length){x.fillStyle='#6b7499';x.fillText('No candle data',10,20);return}
- const lo=Math.min(...d.map(c=>c.low)),hi=Math.max(...d.map(c=>c.high)),Y=q=>6+(hi-q)/(hi-lo)*(h-20),bw=(w-10)/d.length;
- d.forEach((c,i)=>{const cx=5+i*bw+bw/2,up=c.close>=c.open;x.strokeStyle=x.fillStyle=up?'#39ff88':'#ff2bd6';x.beginPath();x.moveTo(cx,Y(c.high));x.lineTo(cx,Y(c.low));x.stroke();x.fillRect(cx-bw*.35,Y(Math.max(c.open,c.close)),bw*.7,Math.max(1,Math.abs(Y(c.open)-Y(c.close))))});
- const pos=S?.positions?.[t];if(pos){x.strokeStyle='#ff9a2f';x.setLineDash([4,3]);x.beginPath();x.moveTo(0,Y(pos.stop));x.lineTo(w,Y(pos.stop));x.stroke();x.setLineDash([]);x.fillStyle='#ff9a2f';x.fillText('stop '+pos.stop.toFixed(2),4,Y(pos.stop)-3)}
- x.fillStyle='#6b7499';x.fillText(`${t} daily · ${d[0].time} → ${d.at(-1).time}`,4,h-3);
- cv.onmousemove=e=>{const r=cv.getBoundingClientRect(),i=Math.floor((e.clientX-r.left-5)/bw);const c=d[i];if(c)showTip(e,`${t} ${c.time}<br>O ${c.open.toFixed(2)} H ${c.high.toFixed(2)}<br>L ${c.low.toFixed(2)} C ${c.close.toFixed(2)}`)};cv.onmouseleave=hideTip}
-function render(){const s=S.stats||{};
- $('k-eq').textContent=money(s.equity);$('k-pnl').innerHTML=`<span class="${cls(s.pnl)}">${s.pnl==null?'—':money(s.pnl)+' '+pct(s.roi)}</span>`;
- $('k-wr').textContent=s.win_rate==null?(s.closed?'—':'— (0 closed)'):(s.win_rate*100).toFixed(0)+'%';$('k-pos').textContent=Object.keys(S.positions||{}).length;
- $('k-cyc').textContent=`#${S.cycles??'—'} · ${S.cycle_ts?fmtT(S.cycle_ts):'—'}`;$('upd').textContent=S.cycle_ts?fmtT(S.cycle_ts):'—';
- const P=Object.entries(S.positions||{});$('pos').innerHTML=P.length?'<table><tr><th>Sym</th><th>Entry</th><th>Last</th><th>Value</th><th>P&L</th></tr>'+P.map(([t,p])=>`<tr data-tip="${t}: qty ${(+p.qty).toPrecision(5)} · signal ${p.signal}<br>stop ${money(p.stop)} · opened ${fmtT(p.opened)}"><td>${t}</td><td>${money(p.entry)}</td><td>${money(p.price)}</td><td>${money(p.value)}</td><td class="${cls(p.upnl)}">${p.upnl==null?'—':money(p.upnl)}</td></tr>`).join('')+`</table><div class=mut>Cash ${money(S.cash)}</div>`:'<p class=ph>No open positions.</p>';
- const L=(S.log||[]).slice(-30).reverse();$('feed').innerHTML=L.length?L.map(l=>{const a=AG.find(x=>x.n==l.agent)||{c:'#ccc',i:'•'};return `<div><span class=mut>${fmtT(l.ts)}</span> <span class=who style="color:${a.c}">${a.i} ${esc(l.agent)}</span><br>${esc(l.msg)}</div>`}).join(''):'<p class=ph>No activity yet.</p>';
- const V=(S.vetoes||[]).slice(-20).reverse();$('veto').innerHTML=V.length?V.map(v=>`<div class=feed><div><span class=mut>${fmtT(v.ts)}</span> <b style="color:var(--org)">${v.ticker}</b> (${v.signal}): ${esc(v.reason)}</div></div>`).join(''):'<p class=ph>No vetoes yet. Every signal so far passed or was already held.</p>';
- const T=(S.trades||[]).slice(-15).reverse();$('trades').innerHTML=T.length?'<table><tr><th>Time</th><th>Side</th><th>Sym</th><th>Price</th><th>P&L</th></tr>'+T.map(t=>`<tr data-tip="${esc(t.reason)} · fee ${money(t.fee)}"><td class=mut>${fmtT(t.ts)}</td><td class="${t.side=='BUY'?'up':'dn'}">${t.side}</td><td>${t.ticker}</td><td>${money(t.price)}</td><td class="${cls(t.pnl)}">${t.pnl==null?'open':money(t.pnl)}</td></tr>`).join('')+'</table>':'<p class=ph>No trades yet.</p>';
- // heatmap
- const sc=S.research?.scan||{},sig={};(S.signals||[]).forEach(x=>sig[x.ticker]=x);const tk=Object.keys(sc);
- const hc=(v,m)=>{const a=Math.min(1,Math.abs(v)/m);return v>=0?`rgba(57,255,136,${.12+a*.7})`:`rgba(255,43,214,${.12+a*.7})`};
- $('heat').innerHTML=tk.length?'<div class=mut>Sym</div><div class=mut>20d mom</div><div class=mut>60d mom</div><div class=mut>Vol</div><div class=mut>Signal</div>'+tk.map(t=>{const x=sc[t],g=sig[t];
-  return `<div>${t}</div><div style="background:${hc(x.mom20,.1)}" data-tip="${t} 20-day momentum ${pct(x.mom20)}">${pct(x.mom20)}</div><div style="background:${hc(x.mom60,.3)}" data-tip="${t} 60-day momentum ${pct(x.mom60)}">${pct(x.mom60)}</div><div style="background:rgba(160,102,255,${Math.min(.9,x.vol20)})" data-tip="${t} annualized vol (20d)">${(x.vol20*100).toFixed(0)}%</div><div style="background:${g?(g.status=='VETOED'?'#ff9a2f55':'#2fd4ff44'):'#11152a'}" data-tip="${g?esc(g.signal+' · '+g.status+(g.reason?' · '+g.reason:'')):'no signal'}">${g?g.signal+' '+g.status:'—'}</div>`}).join(''):'<p class=ph>No scan yet.</p>';
- const sel=$('sym');if(!sel.options.length&&C){sel.innerHTML=Object.keys(C).map(t=>`<option>${t}</option>`).join('');sel.value=Object.keys(S.positions||{})[0]||Object.keys(C)[0];sel.onchange=drawCandles}
- drawEq();drawCandles();
- if(S.cycle_ts!==lastCycle){lastCycle=S.cycle_ts;replay()}}
-async function load(){try{const q='?'+Date.now();const [l,c,e]=await Promise.all([fetch('state/ledger.json'+q).then(r=>r.json()),fetch('state/candles.json'+q).then(r=>r.json()).catch(()=>null),fetch('state/equity.csv'+q).then(r=>r.text()).catch(()=>'')]);
- S=l;C=c;EQ=e.trim().split('\n').slice(1).map(r=>r.split(',')).filter(r=>r.length>1).map(r=>({ts:r[0],eq:+r[1]}));render()}catch(err){$('upd').textContent='data unavailable ('+err.message+')'}}
-load();setInterval(load,60000);addEventListener('resize',()=>S&&(drawEq(),drawCandles()));
+ $('nowimg').src=a.img;$('nown').textContent=a.code;$('nown').style.color=a.c;$('nowm').textContent=st.msg;$('now').style.setProperty('--c',a.c);$('m-stage').textContent=`${a.k} · ${a.code} · STEP ${i+1}/${all.length}`}
+// ---------- panels ----------
+function ctx(cv){const w=cv.clientWidth,h=+cv.getAttribute('height');cv.width=w*devicePixelRatio;cv.height=h*devicePixelRatio;cv.style.height=h+'px';const x=cv.getContext('2d');x.scale(devicePixelRatio,devicePixelRatio);x.font="9px 'JetBrains Mono'";return [x,w,h]}
+function line(cv,v,color,fill=true,base=null){const [x,w,h]=ctx(cv);if(v.length<2){x.fillStyle='#5c6a74';x.fillText('not enough data yet',8,16);return}
+ let mn=Math.min(...v,base??Infinity),mx=Math.max(...v,base??-Infinity),pd=(mx-mn)*.15||1;mn-=pd;mx+=pd;const X=i=>i/(v.length-1)*w,Y=q=>h-4-(q-mn)/(mx-mn)*(h-8);
+ if(base!=null){x.strokeStyle='#1e3543';x.setLineDash([3,3]);x.beginPath();x.moveTo(0,Y(base));x.lineTo(w,Y(base));x.stroke();x.setLineDash([])}
+ if(fill){const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,color+'66');g.addColorStop(1,color+'00');x.beginPath();v.forEach((q,i)=>i?x.lineTo(X(i),Y(q)):x.moveTo(X(i),Y(q)));x.lineTo(w,h);x.lineTo(0,h);x.fillStyle=g;x.fill()}
+ x.beginPath();v.forEach((q,i)=>i?x.lineTo(X(i),Y(q)):x.moveTo(X(i),Y(q)));x.strokeStyle=color;x.lineWidth=2;x.shadowColor=color;x.shadowBlur=8;x.stroke();x.shadowBlur=0;return {x,w,h,X,Y}}
+function rets(t){const c=(C?.[t]||[]).map(r=>r.close);return c.slice(1).map((v,i)=>v/c[i]-1)}
+function render(){const s=S.stats||{},P=S.positions||{},pk=Object.keys(P);
+ $('h-eq').textContent=money(s.equity);$('h-pnl').textContent=s.pnl==null?'—':(s.pnl>=0?'+':'')+money(s.pnl);$('h-pnl').style.color=s.pnl>=0?'':'var(--red)';$('h-cyc').textContent=S.cycles??'—';$('h-day').textContent=`DAY ${s.day??'—'}/${s.days??30}`;
+ $('s-hold').textContent=pk.join(' · ')||'NONE';$('s-open').textContent=pk.length;$('s-wr').textContent=s.win_rate==null?'— (0 CLOSED)':(s.win_rate*100).toFixed(0)+'%';$('s-dd').textContent=pct(s.max_dd,1);$('s-cash').textContent=money(s.cash);
+ const wl=(S.log||[]).slice(-14);const wi=wl.map(l=>{const a=AG.find(x=>x.n==l.agent)||{c:'#fff',code:'?'};return `<span><span class="ag" style="color:${a.c}">● ${a.code}</span> &nbsp;${esc(l.msg)} <span class=mut>${fmtT(l.ts)}</span></span>`}).join('');$('wiretrack').innerHTML=wi+wi;
+ $('m-eq').textContent=money(s.equity);$('m-roi').innerHTML=`<span class="${cls(s.pnl)}">${pct(s.roi)} · ${money(s.pnl)}</span>`;$('m-cyc').textContent='#'+(S.cycles??'—')+' · '+fmtD(S.cycle_ts);$('m-logs').textContent=(S.log||[]).length;
+ // signals in (real)
+ const sc=S.research?.scan||{},bt=S.backtest?.summary||{},btc=sc.BTC;
+ const SIG=[['BTC 20D MOMENTUM',btc?.mom20,v=>pct(v,1),'#49c3cd',.15],['BTC 60D MOMENTUM',btc?.mom60,v=>pct(v,1),'#3a76e6',.3],['BTC ANNUAL VOL',btc?.vol20,v=>(v*100).toFixed(1)+'%','#9541e4',1],['DRAWDOWN',s.drawdown,v=>pct(v,2),'#c86bff',.15],['INVESTED',s.equity?s.holdings/s.equity:null,v=>(v*100).toFixed(0)+'%','#df1e8a',1],['TREND BACKTEST WIN',bt.trend?.win_rate,v=>(v*100).toFixed(0)+'%','#df2f26',1]];
+ $('sigsub').textContent=`${Object.keys(sc).length} TICKERS SCANNED`;
+ $('sigs').innerHTML=SIG.map(([l,v,f,c,m])=>{const p=v==null?0:Math.min(1,Math.abs(v)/m);return `<div class="sc" style="--c:${c}"><div class="l">${l}</div><div class="v">${v==null?'—':f(v)}</div><div class="d ${cls(v)}">${v==null?'no data':v>=0?'▲':'▼'}</div><div class="bar" style="right:${40+(1-p)*190}px"></div><div class="dot" style="left:${8+p*200}px"></div></div>`}).join('');
+ // now acting sparkline
+ line($('nowcv'),EQ.map(r=>r.eq),'#f0962f',false);
+ const lt=(S.trades||[]).at(-1);$('ticket').innerHTML=lt?`<div style="display:flex;justify-content:space-between;align-items:center"><b class="sans" style="font-size:14px;color:#fff">${lt.side} ${lt.ticker}</b><span style="border:1px solid var(--grn);color:var(--grn);padding:0 4px;font-size:8px">${P[lt.ticker]?'OPEN':'CLOSED'}</span></div>`+
+  [['FILL',money(lt.price)],['QTY',(+lt.qty).toPrecision(4)],['LAST',money(P[lt.ticker]?.price)],['OPEN P&L',P[lt.ticker]?`<span class="${cls(P[lt.ticker].upnl)}">${money(P[lt.ticker].upnl)}</span>`:money(lt.pnl)],['STOP',money(P[lt.ticker]?.stop)],['FEE',money(lt.fee,3)]].map(([k,v])=>`<div class="kv"><span class=mut>${k}</span><b>${v}</b></div>`).join('')+`<div class=mut style="font-size:8px;margin-top:4px">${fmtD(lt.ts)} · ${esc(lt.reason)}</div>`:'<p class=ph>No trades yet.</p>';
+ const cyc=S.cycle_ts,hl=(S.log||[]).filter(l=>l.cycle?l.cycle==cyc:new Date(l.ts)>=new Date(cyc));
+ $('handoff').innerHTML=hl.length?hl.map(l=>{const a=AG.find(x=>x.n==l.agent);return `<div class="kv"><span style="color:${a?.c}">● ${a?.code}</span><span class=mut style="flex:1;margin-left:6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">${esc(l.msg)}</span></div>`}).join(''):'<p class=ph>No notes for latest cycle.</p>';
+ // PNL
+ const eqv=s.equity;$('p-eq').textContent=eqv==null?'—':Math.floor(eqv).toLocaleString('en-US')+'.'+(eqv%1).toFixed(2).slice(2);$('p-pnl').innerHTML=`<span class="${cls(s.pnl)}">${s.pnl>=0?'▲':'▼'} ${money(s.pnl)}</span>`;
+ $('p-sub').innerHTML=`ROI <b class="${cls(s.roi)}">${pct(s.roi,3)}</b> · ON $1,000 SEED`;$('p-roi').innerHTML=`<span class="${cls(s.roi)}">${pct(s.roi)}</span>`;$('p-day').textContent=s.day??'—';
+ $('p-t').textContent=s.trades??'—';$('p-wr').textContent=s.win_rate==null?'—':(s.win_rate*100).toFixed(1)+'%';const up=Object.values(P).reduce((a,p)=>a+(p.upnl||0),0);$('p-up').innerHTML=`<span class="${cls(up)}">${money(up)}</span>`;$('p-dd').textContent=pct(s.max_dd,1);
+ const r=line($('eqcv'),EQ.map(r=>r.eq),'#3bd98c',true,1000);if(r){r.x.fillStyle='#3bd98c';r.x.font="800 20px Inter";const t=money(EQ.at(-1)?.eq);r.x.fillText(t,r.w-r.x.measureText(t).width-4,22);r.x.font="8px 'JetBrains Mono'";r.x.fillStyle='#5c6a74';r.x.fillText('BALANCE · $1,000 SEED (dashed)',4,12);
+  $('eqcv').onmousemove=e=>{const b=$('eqcv').getBoundingClientRect(),i=Math.round((e.clientX-b.left)/b.width*(EQ.length-1));const q=EQ[i];q&&showTip(e,`${fmtD(q.ts)}<br>${money(q.eq)}`)}}
+ line($('eqmini'),(C?.SPY||[]).slice(-60).map(c=>c.close),'#3bd98c',true);
+ const stk=pk.filter(t=>!['BTC','ETH','SOL'].includes(t)).reduce((a,t)=>a+P[t].value,0),cr=pk.filter(t=>['BTC','ETH','SOL'].includes(t)).reduce((a,t)=>a+P[t].value,0),E=s.equity||1;
+ $('expo').innerHTML=[['STOCKS',stk/E,'#3bd98c'],['CRYPTO',cr/E,'#3a76e6'],['CASH',(s.cash||0)/E,'#9541e4']].map(([l,v,c])=>`<div class="hb" style="--c:${c}"><span style="width:52px">${l}</span><div class="t"><s style="width:${(v*100).toFixed(1)}%"></s></div><span style="width:44px;text-align:right;color:${c}">${(v*100).toFixed(1)}%</span></div>`).join('')+'<div class=mut style="font-size:8px">SPY 60D (left) · EXPOSURE BY BOOK</div>';
+ // PRICER: BTC daily return distribution from candles
+ const R=rets('BTC'),n=R.length,mu=n?R.reduce((a,b)=>a+b,0)/n:0,sd=n?Math.sqrt(R.reduce((a,b)=>a+(b-mu)**2,0)/n):0,last=R.at(-1);
+ $('pr-n').textContent=n+' DAILY BARS';
+ const bp=BTC??S.prices?.BTC?.price;const pu=sd?0.5*(1+erf(mu/(sd*Math.SQRT2))):null;
+ $('prtop').innerHTML=[['SPOT',money(bp,0),'#3a76e6'],['DRIFT/D',pct(mu,3),'#9541e4'],['VOL/D',pct(sd,2).replace('+',''),'#f0962f'],['P(UP)',pu==null?'—':(pu*100).toFixed(1)+'%','#fff'],['LAST',pct(last,2),last>=0?'#3bd98c':'#df2f26']].map(([k,v,c])=>`<div><span class=mut>${k}</span><br><b class=sans style="font-size:14px;color:${c}">${v}</b></div>`).join('');
+ const bpos=P.BTC;$('prcards').innerHTML=[['BTC LIVE',money(bp),'#3a76e6'],['ENTRY',money(bpos?.entry),'#49c3cd'],['STOP',money(bpos?.stop),'#df2f26'],['OPEN P&L',bpos?money(bpos.upnl):'—','#9541e4'],['SIGNAL',bpos?.signal||'—','#f0962f']].map(([k,v,c])=>`<div class="box" style="--c:${c};padding:5px 7px;margin-bottom:5px"><div class=mut style="font-size:7px">${k}</div><b class=sans style="font-size:14px;color:#fff">${v}</b></div>`).join('');
+ bell($('bell'),R,mu,sd,last);
+ $('prbot').innerHTML=['SPY','QQQ','NVDA','ETH','SOL'].map(t=>{const p=S.prices?.[t]?.price,m=sc[t]?.mom20;return `<div class="box" style="--c:${m>=0?'#3bd98c':'#df2f26'};padding:4px 6px;margin:0"><div class=mut style="font-size:7px">${t}</div><b class=sans style="color:#fff">${money(p,t=='ETH'||t=='SOL'?2:2)}</b><div class="${cls(m)}" style="font-size:8px">${pct(m,1)} 20D</div></div>`}).join('');
+ // spectrogram
+ spectro();
+ // trace
+ const L=(S.log||[]).slice(-12).reverse();$('trstat').innerHTML=`<div><i>CYCLES</i><b>${S.cycles??'—'}</b></div><div><i>STEPS LOGGED</i><b style="color:var(--cyan)">${(S.log||[]).length}</b></div><div><i>VETOES</i><b>${(S.vetoes||[]).length}</b></div><div><i>FILLS</i><b>${(S.trades||[]).length}</b></div>`;
+ $('trrows').innerHTML=L.map(l=>{const a=AG.find(x=>x.n==l.agent)||{c:'#888',code:'?'};const m=l.msg;let rt='';const mm=m.match(/\$[\d,]+\.\d\d|BOUGHT [^;]+|SOLD [^;]+|[\d]+ BUY signals/);rt=mm?mm[0].slice(0,18):a.code;
+  return `<div class="trow"><span class=mut>● ${fmtT(l.ts)}</span><span><span class="pill" style="--c:${a.c}">${a.code}</span></span><span style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis" data-tip="${esc(m)}">${esc(m)}</span><span class="rt">${esc(rt)}</span></div>`}).join('')||'<p class=ph>No steps yet.</p>';
+ tape();foot();if(S.cycle_ts!==lastCycle){lastCycle=S.cycle_ts;replay()}roster()}
+function erf(x){const t=1/(1+.3275911*Math.abs(x)),y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*Math.exp(-x*x);return x>=0?y:-y}
+function bell(cv,R,mu,sd,last){const [x,w,h]=ctx(cv);if(R.length<5){x.fillStyle='#5c6a74';x.fillText('no return data',8,16);return}
+ const lo=-.05,hi=.05,B=44,bins=new Array(B).fill(0);R.forEach(r=>{const i=Math.max(0,Math.min(B-1,Math.floor((r-lo)/(hi-lo)*B)));bins[i]++});const mx=Math.max(...bins),bw=w/B;
+ bins.forEach((c,i)=>{const bh=c/mx*(h-30),cx=i*bw,mid=lo+(i+.5)/B*(hi-lo);x.fillStyle=mid>=0?'#f0962f':'#4944cd';for(let y=0;y<bh;y+=4)x.fillRect(cx+1,h-14-y-3,bw-2,2.5)});
+ x.beginPath();for(let i=0;i<=100;i++){const r=lo+i/100*(hi-lo),pdf=Math.exp(-((r-mu)**2)/(2*sd*sd));const X=i/100*w,Y=h-14-pdf*(h-30)*(Math.max(...bins.map((c,j)=>c))/mx);i?x.lineTo(X,Y):x.moveTo(X,Y)}x.strokeStyle='#c86bff';x.lineWidth=1.5;x.shadowColor='#9541e4';x.shadowBlur=8;x.stroke();x.shadowBlur=0;
+ if(last!=null){const X=(last-lo)/(hi-lo)*w;x.strokeStyle='#fff';x.setLineDash([3,3]);x.beginPath();x.moveTo(X,10);x.lineTo(X,h-14);x.stroke();x.setLineDash([]);x.fillStyle='#000';x.fillRect(X-40,2,80,13);x.strokeStyle='#f0962f';x.strokeRect(X-40,2,80,13);x.fillStyle='#f0962f';x.fillText('TODAY '+pct(last,2),X-36,12)}
+ x.fillStyle='#5c6a74';x.fillText('-5%',2,h-2);x.fillText('0',w/2-3,h-2);x.fillText('+5%',w-24,h-2);x.fillText('BTC DAILY RETURNS · '+R.length+' BARS',4,12)}
+function spectro(){const cv=$('spcv'),[x,w,h]=ctx(cv);const T=Object.keys(C||{});$('sp-n').textContent=T.length;if(!T.length){x.fillStyle='#5c6a74';x.fillText('no candle data',8,16);return}
+ const D=40,rh=h/T.length,cw=w/D;x.fillStyle='#24208a';x.fillRect(0,0,w,h);T.forEach((t,j)=>{const r=rets(t).slice(-D);r.forEach((v,i)=>{const a=Math.min(1,Math.abs(v)/.04);x.fillStyle=v>=0?(a>.6?`rgba(255,${200+a*55|0},${120+a*100|0},1)`:`rgba(240,170,47,${.25+a})`):`rgba(${90+a*60|0},${60},${200+a*40|0},${.35+a*.65})`;x.fillRect(i*cw+.5,j*rh+.5,cw-1,rh-1)})});
+ const sig={};(S.signals||[]).forEach(q=>sig[q.ticker]=q);const sc=S.research?.scan||{};
+ $('splab').innerHTML=T.map(t=>`<div style="height:${rh}px;display:flex;align-items:center;gap:4px;font-size:8px;border-bottom:1px solid #111a2c" data-tip="${t}: 20d ${pct(sc[t]?.mom20,1)} · 60d ${pct(sc[t]?.mom60,1)}${sig[t]?' · '+sig[t].signal+' '+sig[t].status:''}"><b style="width:30px;color:${sig[t]?'#f0962f':'#fff'}">${t}</b><span class="${cls(sc[t]?.mom20)}">${pct(sc[t]?.mom20,1)}</span></div>`).join('');
+ cv.onmousemove=e=>{const b=cv.getBoundingClientRect(),j=Math.floor((e.clientY-b.top)/rh),i=Math.floor((e.clientX-b.left)/cw);const t=T[j],c=(C[t]||[]).slice(-D-1),v=rets(t).slice(-D)[i];v!=null&&showTip(e,`${t} ${c[i+1]?.time}: ${pct(v,2)}`)};cv.onmouseleave=hideTip;
+ const nsig=(S.signals||[]).length;$('sptop').innerHTML=[['SIGNALS',nsig+'/'+T.length,'#fff'],['HELD',(S.signals||[]).filter(q=>q.status=='HELD').length,'#49c3cd'],['VETOED',(S.signals||[]).filter(q=>q.status=='VETOED').length,'#f0962f'],['MOST VOL',Object.keys(sc).sort((a,b)=>sc[b].vol20-sc[a].vol20)[0]||'—','#9541e4']].map(([k,v,c])=>`<div><span class=mut>${k}</span><br><b class=sans style="font-size:15px;color:${c}">${v}</b></div>`).join('');
+ const avg=Array.from({length:D},(_,i)=>T.reduce((a,t)=>a+(rets(t).slice(-D)[i]||0),0)/T.length);line($('spline'),avg.map((v,i,a)=>a.slice(0,i+1).reduce((p,q)=>p+q,0)),'#49c3cd',false)}
+function tape(){const cv=$('tapecv'),[x,w,h]=ctx(cv);let d,src;if(KL&&KL.length){d=KL;src='COINBASE 1M · LIVE'}else{d=(C?.BTC||[]).slice(-90);src='DAILY · LEDGER (1M FEED BLOCKED)'}
+ $('tp-src').textContent=src;const px=BTC??S.prices?.BTC?.price;$('tp-px').textContent=money(px);const op=BTC24;$('tp-ch').textContent=op&&px?pct(px/op-1):'—';$('tp-ch').style.color=$('tp-ch').style.borderColor=op&&px>=op?'#3bd98c':'#df2f26';
+ const bt=S.prices?.BTC;$('tp-r').textContent=`BTC IN BOOK: ${S.positions?.BTC?(+S.positions.BTC.qty).toPrecision(3)+' @ '+money(S.positions.BTC.entry,0):'NONE'}`;
+ if(!d.length){x.fillStyle='#5c6a74';x.fillText('no candles',8,16);return}const lo=Math.min(...d.map(c=>c.low)),hi=Math.max(...d.map(c=>c.high)),ch=h-50,Y=q=>8+(hi-q)/(hi-lo)*(ch-8),bw=w/d.length;
+ // value-area bands
+ for(let k=0;k<6;k++){x.strokeStyle=`rgba(73,195,205,${.05+k*.02})`;x.beginPath();d.forEach((c,i)=>{const sm=d.slice(Math.max(0,i-10),i+1).reduce((a,q)=>a+q.close,0)/Math.min(i+1,11);const yy=Y(sm)+(k-3)*6;i?x.lineTo(i*bw,yy):x.moveTo(0,yy)});x.stroke()}
+ d.forEach((c,i)=>{const cx=i*bw+bw/2,up=c.close>=c.open,col=up?'#3bd98c':'#df2f26';x.strokeStyle=x.fillStyle=col;x.shadowColor=col;x.shadowBlur=4;x.beginPath();x.moveTo(cx,Y(c.high));x.lineTo(cx,Y(c.low));x.stroke();x.fillRect(cx-bw*.32,Y(Math.max(c.open,c.close)),bw*.64,Math.max(1,Math.abs(Y(c.open)-Y(c.close))))});x.shadowBlur=0;
+ const vs=d.map(c=>c.volume||Math.abs(c.close-c.open)),vm=Math.max(...vs)||1;d.forEach((c,i)=>{x.fillStyle=c.close>=c.open?'#3bd98c88':'#df2f2688';const vh=vs[i]/vm*36;x.fillRect(i*bw+bw*.2,h-vh,bw*.6,vh)});
+ const pos=S.positions?.BTC;if(pos&&pos.entry>=lo&&pos.entry<=hi){x.strokeStyle='#c86bff';x.setLineDash([5,4]);x.beginPath();x.moveTo(0,Y(pos.entry));x.lineTo(w,Y(pos.entry));x.stroke();x.setLineDash([]);x.fillStyle='#c86bff';x.fillText('OUR ENTRY '+money(pos.entry,0),4,Y(pos.entry)-3)}
+ if(pos&&pos.stop>=lo&&pos.stop<=hi){x.strokeStyle='#df2f26';x.setLineDash([2,4]);x.beginPath();x.moveTo(0,Y(pos.stop));x.lineTo(w,Y(pos.stop));x.stroke();x.setLineDash([]);x.fillStyle='#df2f26';x.fillText('STOP '+money(pos.stop,0),4,Y(pos.stop)-3)}
+ x.fillStyle='#5c6a74';x.fillText(money(hi,0),w-60,14);x.fillText(money(lo,0),w-60,ch);
+ // book
+ if(BOOK){const a=BOOK.asks.slice(0,12).reverse(),b=BOOK.bids.slice(0,12),mx=Math.max(...a.concat(b).map(q=>+q[1]));const rw=(q,c)=>`<div class="lv"><s style="width:${(q[1]/mx*100).toFixed(0)}%;background:${c}"></s><span style="color:${c};z-index:1">${money(+q[0],0)}</span><span style="z-index:1;color:#fff">${(+q[1]).toFixed(3)}</span></div>`;
+  const spr=a.length&&b.length?(+a.at(-1)[0]-+b[0][0]):null;$('ob').innerHTML=a.map(q=>rw(q,'#df2f26')).join('')+`<div class="kv" style="font-size:9px"><span class=mut>SPREAD</span><b style="color:var(--amb)">${spr==null?'—':money(spr)}</b></div>`+b.map(q=>rw(q,'#3bd98c')).join('');$('ob-src').textContent=BOOK.src}
+ else $('ob').innerHTML='<p class=ph>Order book feed unavailable (blocked or loading).</p>'}
+function foot(){const s=S.stats||{};const it=[['EQUITY',money(s.equity)],['P&L',`<span class="${cls(s.pnl)}">${money(s.pnl)} ${pct(s.roi)}</span>`],['BTC',money(BTC??S.prices?.BTC?.price,0)],['SPY',money(S.prices?.SPY?.price)],['NVDA',money(S.prices?.NVDA?.price)],['ETH',money(S.prices?.ETH?.price)],['MAX DD',pct(s.max_dd,1)],['DAY',`${s.day??'—'} OF ${s.days??30}`],['CYCLE',S.cycles],['PAPER TRADING','NO REAL ORDERS']].map(([k,v])=>`<span>${k} <b>${v}</b></span>`).join('');$('foottrack').innerHTML=it+it}
+// data
+async function j(u){const r=await fetch(u);if(!r.ok)throw new Error(r.status);return r.json()}
+async function load(){try{const q='?'+Date.now();const [l,c,e]=await Promise.all([j('state/ledger.json'+q),j('state/candles.json'+q).catch(()=>null),fetch('state/equity.csv'+q).then(r=>r.text()).catch(()=>'')]);
+ S=l;C=c;EQ=e.trim().split('\n').slice(1).map(r=>r.split(',')).filter(r=>r.length>1).map(r=>({ts:r[0],eq:+r[1]}));render()}catch(err){$('m-stage').textContent='LEDGER UNAVAILABLE ('+err.message+')'}}
+async function market(){try{const t=await j('https://api.exchange.coinbase.com/products/BTC-USD/ticker');BTC=+t.price;$('m-btc').textContent=money(BTC,0)}catch(e){try{const t=await j('https://api.binance.us/api/v3/ticker/price?symbol=BTCUSDT');BTC=+t.price;$('m-btc').textContent=money(BTC,0)}catch(e2){$('m-btc').textContent=money(S?.prices?.BTC?.price,0);$('m-btcd').textContent='live feed blocked · ledger price'}}
+ try{const st=await j('https://api.exchange.coinbase.com/products/BTC-USD/stats');BTC24=+st.open;const ch=BTC/BTC24-1;$('m-btcd').textContent=pct(ch)+' 24H';$('m-btcd').className=cls(ch)}catch(e){}
+ try{const k=await j('https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=60');KL=k.slice(0,90).reverse().map(r=>({time:r[0],low:r[1],high:r[2],open:r[3],close:r[4],volume:r[5]}))}catch(e){KL=null}
+ try{const b=await j('https://api.exchange.coinbase.com/products/BTC-USD/book?level=2');BOOK={asks:b.asks,bids:b.bids,src:'COINBASE L2'}}catch(e){try{const b=await j('https://api.binance.us/api/v3/depth?symbol=BTCUSDT&limit=20');BOOK={asks:b.asks,bids:b.bids,src:'BINANCE.US'}}catch(e2){BOOK=null}}
+ if(S){tape();foot()}}
+load();market();setInterval(load,60000);setInterval(market,10000);addEventListener('resize',()=>S&&render());
 </script></body></html>
