@@ -115,36 +115,6 @@
  ],
  "log": [
   {
-   "ts": "2026-10-21T10:37:14-05:00",
-   "cycle": "2026-10-21T10:37:10-05:00",
-   "agent": "Research Analyst",
-   "msg": "Momentum leaders (20d): MSFT +6.2%, AAPL +2.3%, TSLA +1.7%. Most volatile: AMD."
-  },
-  {
-   "ts": "2026-10-21T10:37:14-05:00",
-   "cycle": "2026-10-21T10:37:10-05:00",
-   "agent": "Quant Strategist",
-   "msg": "5 BUY signals: SPY(trend), AAPL(trend), MSFT(trend), TSLA(trend), BTC(trend). Backtest: trend 129 trades, win 47%; meanrev 2 trades, win 50%; breakout 68 trades, win 41%."
-  },
-  {
-   "ts": "2026-10-21T10:37:14-05:00",
-   "cycle": "2026-10-21T10:37:10-05:00",
-   "agent": "Risk Manager",
-   "msg": "Drawdown 0.0%. Approved none; vetoed 1. Max 2% risk / 25% per name, stops on all."
-  },
-  {
-   "ts": "2026-10-21T10:37:14-05:00",
-   "cycle": "2026-10-21T10:37:10-05:00",
-   "agent": "Trader",
-   "msg": "No fills this cycle."
-  },
-  {
-   "ts": "2026-10-21T10:37:14-05:00",
-   "cycle": "2026-10-21T10:37:10-05:00",
-   "agent": "Portfolio Reporter",
-   "msg": "Account $1,009.81 | P&L $+9.81 (+0.98%) | 4 open | max DD -0.2%."
-  },
-  {
    "ts": "2026-10-21T11:02:40-05:00",
    "cycle": "2026-10-21T11:02:36-05:00",
    "agent": "Research Analyst",
@@ -1911,6 +1881,36 @@
    "cycle": "2026-10-26T15:34:45-05:00",
    "agent": "Portfolio Reporter",
    "msg": "Account $1,001.26 | P&L $+1.26 (+0.13%) | 3 open | max DD -2.3%."
+  },
+  {
+   "ts": "2026-10-27T08:17:59-05:00",
+   "cycle": "2026-10-27T08:17:55-05:00",
+   "agent": "Research Analyst",
+   "msg": "Momentum leaders (20d): TSLA +9.6%, MSFT +4.6%, AAPL +1.6%. Most volatile: AMD."
+  },
+  {
+   "ts": "2026-10-27T08:18:00-05:00",
+   "cycle": "2026-10-27T08:17:55-05:00",
+   "agent": "Quant Strategist",
+   "msg": "3 BUY signals: AAPL(trend), MSFT(trend), TSLA(breakout). Backtest: trend 132 trades, win 45%; meanrev 2 trades, win 50%; breakout 64 trades, win 41%.\nJev (log-only): AAPL take (0.83), MSFT take (0.87), TSLA take (0.87)."
+  },
+  {
+   "ts": "2026-10-27T08:18:00-05:00",
+   "cycle": "2026-10-27T08:17:55-05:00",
+   "agent": "Risk Manager",
+   "msg": "Drawdown -1.0%. Approved none; vetoed 0. Max 2% risk / 25% per name, max 4 open, stops on all."
+  },
+  {
+   "ts": "2026-10-27T08:18:00-05:00",
+   "cycle": "2026-10-27T08:17:55-05:00",
+   "agent": "Trader",
+   "msg": "No fills this cycle. Stocks wait for the 9:30 AM ET open."
+  },
+  {
+   "ts": "2026-10-27T08:18:00-05:00",
+   "cycle": "2026-10-27T08:17:55-05:00",
+   "agent": "Portfolio Reporter",
+   "msg": "Account $1,001.26 | P&L $+1.26 (+0.13%) | 3 open | max DD -2.3%."
   }
  ],
  "vetoes": [
@@ -2049,23 +2049,23 @@
  ],
  "agents": {
   "Research Analyst": {
-   "ts": "2026-10-26T15:34:50-05:00",
+   "ts": "2026-10-27T08:17:59-05:00",
    "msg": "Momentum leaders (20d): TSLA +9.6%, MSFT +4.6%, AAPL +1.6%. Most volatile: AMD."
   },
   "Quant Strategist": {
-   "ts": "2026-10-26T15:34:50-05:00",
-   "msg": "3 BUY signals: AAPL(trend), MSFT(trend), TSLA(breakout). Backtest: trend 132 trades, win 45%; meanrev 2 trades, win 50%; breakout 64 trades, win 41%.\nJev (log-only): AAPL take (0.88), MSFT take (0.82), TSLA take (0.88)."
+   "ts": "2026-10-27T08:18:00-05:00",
+   "msg": "3 BUY signals: AAPL(trend), MSFT(trend), TSLA(breakout). Backtest: trend 132 trades, win 45%; meanrev 2 trades, win 50%; breakout 64 trades, win 41%.\nJev (log-only): AAPL take (0.83), MSFT take (0.87), TSLA take (0.87)."
   },
   "Risk Manager": {
-   "ts": "2026-10-26T15:34:50-05:00",
+   "ts": "2026-10-27T08:18:00-05:00",
    "msg": "Drawdown -1.0%. Approved none; vetoed 0. Max 2% risk / 25% per name, max 4 open, stops on all."
   },
   "Trader": {
-   "ts": "2026-10-26T15:34:50-05:00",
+   "ts": "2026-10-27T08:18:00-05:00",
    "msg": "No fills this cycle. Stocks wait for the 9:30 AM ET open."
   },
   "Portfolio Reporter": {
-   "ts": "2026-10-26T15:34:50-05:00",
+   "ts": "2026-10-27T08:18:00-05:00",
    "msg": "Account $1,001.26 | P&L $+1.26 (+0.13%) | 3 open | max DD -2.3%."
   },
   "Quant Desk": {
@@ -2403,10 +2403,15 @@
    "ts": "2026-10-26T15:34:45-05:00",
    "equity": 1001.2588,
    "drawdown": -0.009818552439711636
+  },
+  {
+   "ts": "2026-10-27T08:17:55-05:00",
+   "equity": 1001.2588,
+   "drawdown": -0.009818552439711636
   }
  ],
- "cycles": 66,
- "cycle_ts": "2026-10-26T15:34:45-05:00",
+ "cycles": 67,
+ "cycle_ts": "2026-10-27T08:17:55-05:00",
  "research": {
   "scan": {
    "SPY": {
@@ -2452,22 +2457,22 @@
     "price": 531.280029296875
    },
    "BTC": {
-    "mom20": -0.06666101119981083,
-    "mom60": -0.0047022324420767925,
-    "vol20": 0.26856989468181985,
-    "price": 79804.0
+    "mom20": -0.03645754288359904,
+    "mom60": 0.031101814364587144,
+    "vol20": 0.24748652249016156,
+    "price": 80149.0
    },
    "ETH": {
-    "mom20": -0.1421577710740678,
-    "mom60": -0.07790272914500596,
-    "vol20": 0.3833029955503506,
-    "price": 2309.95
+    "mom20": -0.09530837346590026,
+    "mom60": -0.04610583990925421,
+    "vol20": 0.34385689676578857,
+    "price": 2325.58
    },
    "SOL": {
-    "mom20": -0.16874948274435153,
-    "mom60": -0.07979844251030699,
-    "vol20": 0.40545383392185236,
-    "price": 100.18
+    "mom20": -0.13429627719026738,
+    "mom60": -0.03303562854124653,
+    "vol20": 0.3852858812088633,
+    "price": 100.53
    }
   },
   "rank": [
@@ -2476,10 +2481,10 @@
    "AAPL",
    "SPY",
    "QQQ",
-   "NVDA",
    "BTC",
-   "AMD",
+   "NVDA",
    "ETH",
+   "AMD",
    "SOL"
   ]
  },
@@ -2489,7 +2494,7 @@
    "trend": {
     "trades": 132,
     "win_rate": 0.45454545454545453,
-    "avg_ret": 0.0006313427199863707
+    "avg_ret": 0.0006558069061446506
    },
    "meanrev": {
     "trades": 2,
@@ -2499,7 +2504,7 @@
    "breakout": {
     "trades": 64,
     "win_rate": 0.40625,
-    "avg_ret": -0.002995435314200828
+    "avg_ret": -0.0029954343931770135
    }
   }
  },
@@ -2525,8 +2530,8 @@
    "bt": {
     "trades": 15,
     "win_rate": 0.4666666666666667,
-    "avg_ret": -0.0023867002258240546,
-    "total": -0.04243086579334099
+    "avg_ret": -0.002386695303795522,
+    "total": -0.04243079418072093
    },
    "status": "HELD",
    "reason": "already holding"
@@ -2556,7 +2561,7 @@
   "win_rate": 0.0,
   "max_dd": -0.02320006428485677,
   "drawdown": -0.009818552439711636,
-  "day": 6,
+  "day": 7,
   "days": 30,
   "start": "2026-10-21",
   "end": "2026-11-20"
@@ -2592,15 +2597,15 @@
    "src": "yfinance"
   },
   "BTC": {
-   "price": 79804.0,
+   "price": 80149.0,
    "src": "coingecko"
   },
   "ETH": {
-   "price": 2309.95,
+   "price": 2325.58,
    "src": "coingecko"
   },
   "SOL": {
-   "price": 100.18,
+   "price": 100.53,
    "src": "coingecko"
   }
  },
@@ -2692,34 +2697,60 @@
    "status_after_risk": "HELD",
    "model": "jev-1.14.0",
    "confidence": 0.64
+  },
+  {
+   "ts": "2026-10-27T08:17:55-05:00",
+   "ticker": "AAPL",
+   "signal": "trend",
+   "price": 343.9100036621094,
+   "answer": "take",
+   "prob_take": 0.83,
+   "status_after_risk": "HELD",
+   "model": "jev-1.14.0",
+   "confidence": 0.66
+  },
+  {
+   "ts": "2026-10-27T08:17:55-05:00",
+   "ticker": "MSFT",
+   "signal": "trend",
+   "price": 532.5999755859375,
+   "answer": "take",
+   "prob_take": 0.87,
+   "status_after_risk": "HELD",
+   "model": "jev-1.14.0",
+   "confidence": 0.74
+  },
+  {
+   "ts": "2026-10-27T08:17:55-05:00",
+   "ticker": "TSLA",
+   "signal": "breakout",
+   "price": 391.6199951171875,
+   "answer": "take",
+   "prob_take": 0.87,
+   "status_after_risk": "HELD",
+   "model": "jev-1.14.0",
+   "confidence": 0.74
   }
  ],
  "jev_cache": {
-  "AAPL|trend|2026-10-26": {
+  "AAPL|trend|2026-10-27": {
    "answer": "take",
-   "prob_take": 0.88,
-   "confidence": 0.76,
+   "prob_take": 0.83,
+   "confidence": 0.66,
    "model": "jev-1.14.0",
    "error": null
   },
-  "TSLA|trend|2026-10-26": {
+  "MSFT|trend|2026-10-27": {
    "answer": "take",
-   "prob_take": 0.56,
-   "confidence": 0.12,
+   "prob_take": 0.87,
+   "confidence": 0.74,
    "model": "jev-1.14.0",
    "error": null
   },
-  "TSLA|breakout|2026-10-26": {
+  "TSLA|breakout|2026-10-27": {
    "answer": "take",
-   "prob_take": 0.88,
-   "confidence": 0.76,
-   "model": "jev-1.14.0",
-   "error": null
-  },
-  "MSFT|trend|2026-10-26": {
-   "answer": "take",
-   "prob_take": 0.82,
-   "confidence": 0.64,
+   "prob_take": 0.87,
+   "confidence": 0.74,
    "model": "jev-1.14.0",
    "error": null
   }
