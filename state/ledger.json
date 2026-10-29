@@ -138,36 +138,6 @@
  ],
  "log": [
   {
-   "ts": "2026-10-26T09:47:10-05:00",
-   "cycle": "2026-10-26T09:47:06-05:00",
-   "agent": "Research Analyst",
-   "msg": "Momentum leaders (20d): TSLA +10.5%, MSFT +4.0%, AAPL +2.3%. Most volatile: AMD."
-  },
-  {
-   "ts": "2026-10-26T09:47:11-05:00",
-   "cycle": "2026-10-26T09:47:06-05:00",
-   "agent": "Quant Strategist",
-   "msg": "3 BUY signals: AAPL(trend), MSFT(trend), TSLA(breakout). Backtest: trend 132 trades, win 45%; meanrev 2 trades, win 50%; breakout 64 trades, win 41%.\nJev (log-only): AAPL take (0.88), MSFT take (0.82), TSLA take (0.88)."
-  },
-  {
-   "ts": "2026-10-26T09:47:11-05:00",
-   "cycle": "2026-10-26T09:47:06-05:00",
-   "agent": "Risk Manager",
-   "msg": "Drawdown -0.8%. Approved none; vetoed 0. Max 2% risk / 25% per name, max 4 open, stops on all."
-  },
-  {
-   "ts": "2026-10-26T09:47:11-05:00",
-   "cycle": "2026-10-26T09:47:06-05:00",
-   "agent": "Trader",
-   "msg": "No fills this cycle."
-  },
-  {
-   "ts": "2026-10-26T09:47:11-05:00",
-   "cycle": "2026-10-26T09:47:06-05:00",
-   "agent": "Portfolio Reporter",
-   "msg": "Account $1,003.36 | P&L $+3.36 (+0.34%) | 3 open | max DD -2.3%."
-  },
-  {
    "ts": "2026-10-26T10:13:02-05:00",
    "cycle": "2026-10-26T10:12:57-05:00",
    "agent": "Research Analyst",
@@ -1936,6 +1906,36 @@
    "cycle": "2026-10-29T15:17:18-05:00",
    "agent": "Portfolio Reporter",
    "msg": "Account $1,010.40 | P&L $+10.40 (+1.04%) | 4 open | max DD -2.3%."
+  },
+  {
+   "ts": "2026-10-29T15:47:47-05:00",
+   "cycle": "2026-10-29T15:47:43-05:00",
+   "agent": "Research Analyst",
+   "msg": "Momentum leaders (20d): TSLA +13.9%, AAPL +5.6%, MSFT +3.4%. Most volatile: AMD."
+  },
+  {
+   "ts": "2026-10-29T15:47:48-05:00",
+   "cycle": "2026-10-29T15:47:43-05:00",
+   "agent": "Quant Strategist",
+   "msg": "3 BUY signals: AAPL(trend), TSLA(trend), SOL(meanrev). Backtest: trend 131 trades, win 44%; meanrev 2 trades, win 50%; breakout 62 trades, win 37%.\nJev (log-only): AAPL take (0.86), TSLA take (0.89), SOL take (0.76)."
+  },
+  {
+   "ts": "2026-10-29T15:47:48-05:00",
+   "cycle": "2026-10-29T15:47:43-05:00",
+   "agent": "Risk Manager",
+   "msg": "Drawdown -0.3%. Approved none; vetoed 1. Max 2% risk / 25% per name, max 4 open, stops on all."
+  },
+  {
+   "ts": "2026-10-29T15:47:48-05:00",
+   "cycle": "2026-10-29T15:47:43-05:00",
+   "agent": "Trader",
+   "msg": "No fills this cycle. Stocks wait for the 9:30 AM ET open."
+  },
+  {
+   "ts": "2026-10-29T15:47:48-05:00",
+   "cycle": "2026-10-29T15:47:43-05:00",
+   "agent": "Portfolio Reporter",
+   "msg": "Account $1,010.40 | P&L $+10.40 (+1.04%) | 4 open | max DD -2.3%."
   }
  ],
  "vetoes": [
@@ -2070,27 +2070,33 @@
    "ticker": "TSLA",
    "signal": "trend",
    "reason": "max 3 open positions"
+  },
+  {
+   "ts": "2026-10-29T15:47:43-05:00",
+   "ticker": "SOL",
+   "signal": "meanrev",
+   "reason": "max 4 open positions"
   }
  ],
  "agents": {
   "Research Analyst": {
-   "ts": "2026-10-29T15:17:22-05:00",
+   "ts": "2026-10-29T15:47:47-05:00",
    "msg": "Momentum leaders (20d): TSLA +13.9%, AAPL +5.6%, MSFT +3.4%. Most volatile: AMD."
   },
   "Quant Strategist": {
-   "ts": "2026-10-29T15:17:22-05:00",
-   "msg": "2 BUY signals: AAPL(trend), TSLA(trend). Backtest: trend 131 trades, win 44%; meanrev 2 trades, win 50%; breakout 62 trades, win 37%.\nJev (log-only): AAPL take (0.86), TSLA take (0.89)."
+   "ts": "2026-10-29T15:47:48-05:00",
+   "msg": "3 BUY signals: AAPL(trend), TSLA(trend), SOL(meanrev). Backtest: trend 131 trades, win 44%; meanrev 2 trades, win 50%; breakout 62 trades, win 37%.\nJev (log-only): AAPL take (0.86), TSLA take (0.89), SOL take (0.76)."
   },
   "Risk Manager": {
-   "ts": "2026-10-29T15:17:22-05:00",
-   "msg": "Drawdown -0.3%. Approved none; vetoed 0. Max 2% risk / 25% per name, max 4 open, stops on all."
+   "ts": "2026-10-29T15:47:48-05:00",
+   "msg": "Drawdown -0.3%. Approved none; vetoed 1. Max 2% risk / 25% per name, max 4 open, stops on all."
   },
   "Trader": {
-   "ts": "2026-10-29T15:17:22-05:00",
+   "ts": "2026-10-29T15:47:48-05:00",
    "msg": "No fills this cycle. Stocks wait for the 9:30 AM ET open."
   },
   "Portfolio Reporter": {
-   "ts": "2026-10-29T15:17:22-05:00",
+   "ts": "2026-10-29T15:47:48-05:00",
    "msg": "Account $1,010.40 | P&L $+10.40 (+1.04%) | 4 open | max DD -2.3%."
   },
   "Quant Desk": {
@@ -2663,10 +2669,15 @@
    "ts": "2026-10-29T15:17:18-05:00",
    "equity": 1010.4024,
    "drawdown": -0.0031548847782094658
+  },
+  {
+   "ts": "2026-10-29T15:47:43-05:00",
+   "equity": 1010.4024,
+   "drawdown": -0.0031548847782094658
   }
  ],
- "cycles": 113,
- "cycle_ts": "2026-10-29T15:17:18-05:00",
+ "cycles": 114,
+ "cycle_ts": "2026-10-29T15:47:43-05:00",
  "research": {
   "scan": {
    "SPY": {
@@ -2712,22 +2723,22 @@
     "price": 566.4199829101562
    },
    "BTC": {
-    "mom20": -0.02749310763393309,
-    "mom60": 0.03435394755521193,
-    "vol20": 0.23953705179817353,
-    "price": 80310.0
+    "mom20": -0.049579778343104564,
+    "mom60": 0.010862664135305566,
+    "vol20": 0.27525692176107175,
+    "price": 78800.0
    },
    "ETH": {
-    "mom20": -0.06909172723291601,
-    "mom60": -0.041864465653274285,
-    "vol20": 0.3191399909006731,
-    "price": 2312.48
+    "mom20": -0.09744034776879174,
+    "mom60": -0.0710422283606531,
+    "vol20": 0.36777214077600245,
+    "price": 2264.44
    },
    "SOL": {
-    "mom20": -0.09232460157538025,
-    "mom60": -0.027191518602140086,
-    "vol20": 0.34191205563710614,
-    "price": 98.94
+    "mom20": -0.12483971423337614,
+    "mom60": -0.06203985471679596,
+    "vol20": 0.41995071853492305,
+    "price": 96.65
    }
   },
   "rank": [
@@ -2735,11 +2746,11 @@
    "AAPL",
    "MSFT",
    "SPY",
-   "BTC",
    "QQQ",
-   "ETH",
+   "BTC",
    "NVDA",
    "AMD",
+   "ETH",
    "SOL"
   ]
  },
@@ -2749,7 +2760,7 @@
    "trend": {
     "trades": 131,
     "win_rate": 0.44274809160305345,
-    "avg_ret": -0.0013540780470275185
+    "avg_ret": -0.001354077483436465
    },
    "meanrev": {
     "trades": 2,
@@ -2790,6 +2801,19 @@
    },
    "status": "HELD",
    "reason": "already holding"
+  },
+  {
+   "ticker": "SOL",
+   "signal": "meanrev",
+   "price": 96.65,
+   "bt": {
+    "trades": 0,
+    "win_rate": null,
+    "avg_ret": null,
+    "total": 0.0
+   },
+   "status": "VETOED",
+   "reason": "max 4 open positions"
   }
  ],
  "stats": {
@@ -2839,15 +2863,15 @@
    "src": "yfinance"
   },
   "BTC": {
-   "price": 80310.0,
+   "price": 78800.0,
    "src": "coingecko"
   },
   "ETH": {
-   "price": 2312.48,
+   "price": 2264.44,
    "src": "coingecko"
   },
   "SOL": {
-   "price": 98.94,
+   "price": 96.65,
    "src": "coingecko"
   }
  },
@@ -3082,6 +3106,17 @@
    "status_after_risk": "HELD",
    "model": "jev-1.14.0",
    "confidence": 0.78
+  },
+  {
+   "ts": "2026-10-29T15:47:43-05:00",
+   "ticker": "SOL",
+   "signal": "meanrev",
+   "price": 96.65,
+   "answer": "take",
+   "prob_take": 0.76,
+   "status_after_risk": "VETOED",
+   "model": "jev-1.14.0",
+   "confidence": 0.52
   }
  ],
  "jev_cache": {
@@ -3110,6 +3145,13 @@
    "answer": "take",
    "prob_take": 0.89,
    "confidence": 0.78,
+   "model": "jev-1.14.0",
+   "error": null
+  },
+  "SOL|meanrev|2026-10-29": {
+   "answer": "take",
+   "prob_take": 0.76,
+   "confidence": 0.52,
    "model": "jev-1.14.0",
    "error": null
   }
