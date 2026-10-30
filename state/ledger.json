@@ -138,36 +138,6 @@
  ],
  "log": [
   {
-   "ts": "2026-10-26T10:13:02-05:00",
-   "cycle": "2026-10-26T10:12:57-05:00",
-   "agent": "Research Analyst",
-   "msg": "Momentum leaders (20d): TSLA +10.7%, MSFT +3.7%, AAPL +2.5%. Most volatile: AMD."
-  },
-  {
-   "ts": "2026-10-26T10:13:03-05:00",
-   "cycle": "2026-10-26T10:12:57-05:00",
-   "agent": "Quant Strategist",
-   "msg": "3 BUY signals: AAPL(trend), MSFT(trend), TSLA(breakout). Backtest: trend 132 trades, win 45%; meanrev 2 trades, win 50%; breakout 64 trades, win 41%.\nJev (log-only): AAPL take (0.88), MSFT take (0.82), TSLA take (0.88)."
-  },
-  {
-   "ts": "2026-10-26T10:13:03-05:00",
-   "cycle": "2026-10-26T10:12:57-05:00",
-   "agent": "Risk Manager",
-   "msg": "Drawdown -0.7%. Approved none; vetoed 0. Max 2% risk / 25% per name, max 4 open, stops on all."
-  },
-  {
-   "ts": "2026-10-26T10:13:03-05:00",
-   "cycle": "2026-10-26T10:12:57-05:00",
-   "agent": "Trader",
-   "msg": "No fills this cycle."
-  },
-  {
-   "ts": "2026-10-26T10:13:03-05:00",
-   "cycle": "2026-10-26T10:12:57-05:00",
-   "agent": "Portfolio Reporter",
-   "msg": "Account $1,003.99 | P&L $+3.99 (+0.40%) | 3 open | max DD -2.3%."
-  },
-  {
    "ts": "2026-10-26T10:37:37-05:00",
    "cycle": "2026-10-26T10:37:32-05:00",
    "agent": "Research Analyst",
@@ -1936,6 +1906,36 @@
    "cycle": "2026-10-29T15:47:43-05:00",
    "agent": "Portfolio Reporter",
    "msg": "Account $1,010.40 | P&L $+10.40 (+1.04%) | 4 open | max DD -2.3%."
+  },
+  {
+   "ts": "2026-10-30T08:20:41-05:00",
+   "cycle": "2026-10-30T08:20:36-05:00",
+   "agent": "Research Analyst",
+   "msg": "Momentum leaders (20d): TSLA +13.9%, AAPL +5.6%, MSFT +3.4%. Most volatile: AMD."
+  },
+  {
+   "ts": "2026-10-30T08:20:41-05:00",
+   "cycle": "2026-10-30T08:20:36-05:00",
+   "agent": "Quant Strategist",
+   "msg": "3 BUY signals: AAPL(trend), TSLA(trend), ETH(meanrev). Backtest: trend 131 trades, win 44%; meanrev 2 trades, win 50%; breakout 62 trades, win 37%.\nJev (log-only): AAPL take (0.88), TSLA take (0.89), ETH take (0.80)."
+  },
+  {
+   "ts": "2026-10-30T08:20:41-05:00",
+   "cycle": "2026-10-30T08:20:36-05:00",
+   "agent": "Risk Manager",
+   "msg": "Drawdown -0.3%. Approved none; vetoed 1. Max 2% risk / 25% per name, max 4 open, stops on all."
+  },
+  {
+   "ts": "2026-10-30T08:20:41-05:00",
+   "cycle": "2026-10-30T08:20:36-05:00",
+   "agent": "Trader",
+   "msg": "No fills this cycle. Stocks wait for the 9:30 AM ET open."
+  },
+  {
+   "ts": "2026-10-30T08:20:41-05:00",
+   "cycle": "2026-10-30T08:20:36-05:00",
+   "agent": "Portfolio Reporter",
+   "msg": "Account $1,010.40 | P&L $+10.40 (+1.04%) | 4 open | max DD -2.3%."
   }
  ],
  "vetoes": [
@@ -2076,27 +2076,33 @@
    "ticker": "SOL",
    "signal": "meanrev",
    "reason": "max 4 open positions"
+  },
+  {
+   "ts": "2026-10-30T08:20:36-05:00",
+   "ticker": "ETH",
+   "signal": "meanrev",
+   "reason": "max 4 open positions"
   }
  ],
  "agents": {
   "Research Analyst": {
-   "ts": "2026-10-29T15:47:47-05:00",
+   "ts": "2026-10-30T08:20:41-05:00",
    "msg": "Momentum leaders (20d): TSLA +13.9%, AAPL +5.6%, MSFT +3.4%. Most volatile: AMD."
   },
   "Quant Strategist": {
-   "ts": "2026-10-29T15:47:48-05:00",
-   "msg": "3 BUY signals: AAPL(trend), TSLA(trend), SOL(meanrev). Backtest: trend 131 trades, win 44%; meanrev 2 trades, win 50%; breakout 62 trades, win 37%.\nJev (log-only): AAPL take (0.86), TSLA take (0.89), SOL take (0.76)."
+   "ts": "2026-10-30T08:20:41-05:00",
+   "msg": "3 BUY signals: AAPL(trend), TSLA(trend), ETH(meanrev). Backtest: trend 131 trades, win 44%; meanrev 2 trades, win 50%; breakout 62 trades, win 37%.\nJev (log-only): AAPL take (0.88), TSLA take (0.89), ETH take (0.80)."
   },
   "Risk Manager": {
-   "ts": "2026-10-29T15:47:48-05:00",
+   "ts": "2026-10-30T08:20:41-05:00",
    "msg": "Drawdown -0.3%. Approved none; vetoed 1. Max 2% risk / 25% per name, max 4 open, stops on all."
   },
   "Trader": {
-   "ts": "2026-10-29T15:47:48-05:00",
+   "ts": "2026-10-30T08:20:41-05:00",
    "msg": "No fills this cycle. Stocks wait for the 9:30 AM ET open."
   },
   "Portfolio Reporter": {
-   "ts": "2026-10-29T15:47:48-05:00",
+   "ts": "2026-10-30T08:20:41-05:00",
    "msg": "Account $1,010.40 | P&L $+10.40 (+1.04%) | 4 open | max DD -2.3%."
   },
   "Quant Desk": {
@@ -2674,10 +2680,15 @@
    "ts": "2026-10-29T15:47:43-05:00",
    "equity": 1010.4024,
    "drawdown": -0.0031548847782094658
+  },
+  {
+   "ts": "2026-10-30T08:20:36-05:00",
+   "equity": 1010.4024,
+   "drawdown": -0.0031548847782094658
   }
  ],
- "cycles": 114,
- "cycle_ts": "2026-10-29T15:47:43-05:00",
+ "cycles": 115,
+ "cycle_ts": "2026-10-30T08:20:36-05:00",
  "research": {
   "scan": {
    "SPY": {
@@ -2723,22 +2734,22 @@
     "price": 566.4199829101562
    },
    "BTC": {
-    "mom20": -0.049579778343104564,
-    "mom60": 0.010862664135305566,
-    "vol20": 0.27525692176107175,
-    "price": 78800.0
+    "mom20": -0.06848140950038795,
+    "mom60": -0.01596688335035623,
+    "vol20": 0.29132868432003023,
+    "price": 77244.0
    },
    "ETH": {
-    "mom20": -0.09744034776879174,
-    "mom60": -0.0710422283606531,
-    "vol20": 0.36777214077600245,
-    "price": 2264.44
+    "mom20": -0.11015150668975038,
+    "mom60": -0.0956637720642487,
+    "vol20": 0.3578484053466737,
+    "price": 2227.65
    },
    "SOL": {
-    "mom20": -0.12483971423337614,
-    "mom60": -0.06203985471679596,
-    "vol20": 0.41995071853492305,
-    "price": 96.65
+    "mom20": -0.1256130790190736,
+    "mom60": -0.06533980582524279,
+    "vol20": 0.41565759706766425,
+    "price": 96.19
    }
   },
   "rank": [
@@ -2760,7 +2771,7 @@
    "trend": {
     "trades": 131,
     "win_rate": 0.44274809160305345,
-    "avg_ret": -0.001354077483436465
+    "avg_ret": -0.0013540769577859344
    },
    "meanrev": {
     "trades": 2,
@@ -2770,7 +2781,7 @@
    "breakout": {
     "trades": 62,
     "win_rate": 0.3709677419354839,
-    "avg_ret": -0.0052404692524693685
+    "avg_ret": -0.005240472185877924
    }
   }
  },
@@ -2803,9 +2814,9 @@
    "reason": "already holding"
   },
   {
-   "ticker": "SOL",
+   "ticker": "ETH",
    "signal": "meanrev",
-   "price": 96.65,
+   "price": 2227.65,
    "bt": {
     "trades": 0,
     "win_rate": null,
@@ -2827,7 +2838,7 @@
   "win_rate": 0.0,
   "max_dd": -0.02320006428485677,
   "drawdown": -0.0031548847782094658,
-  "day": 9,
+  "day": 10,
   "days": 30,
   "start": "2026-10-21",
   "end": "2026-11-20"
@@ -2863,15 +2874,15 @@
    "src": "yfinance"
   },
   "BTC": {
-   "price": 78800.0,
+   "price": 77244.0,
    "src": "coingecko"
   },
   "ETH": {
-   "price": 2264.44,
+   "price": 2227.65,
    "src": "coingecko"
   },
   "SOL": {
-   "price": 96.65,
+   "price": 96.19,
    "src": "coingecko"
   }
  },
@@ -3117,41 +3128,60 @@
    "status_after_risk": "VETOED",
    "model": "jev-1.14.0",
    "confidence": 0.52
+  },
+  {
+   "ts": "2026-10-30T08:20:36-05:00",
+   "ticker": "AAPL",
+   "signal": "trend",
+   "price": 348.9100036621094,
+   "answer": "take",
+   "prob_take": 0.88,
+   "status_after_risk": "HELD",
+   "model": "jev-1.14.0",
+   "confidence": 0.76
+  },
+  {
+   "ts": "2026-10-30T08:20:36-05:00",
+   "ticker": "TSLA",
+   "signal": "trend",
+   "price": 403.29998779296875,
+   "answer": "take",
+   "prob_take": 0.89,
+   "status_after_risk": "HELD",
+   "model": "jev-1.14.0",
+   "confidence": 0.78
+  },
+  {
+   "ts": "2026-10-30T08:20:36-05:00",
+   "ticker": "ETH",
+   "signal": "meanrev",
+   "price": 2227.65,
+   "answer": "take",
+   "prob_take": 0.8,
+   "status_after_risk": "VETOED",
+   "model": "jev-1.14.0",
+   "confidence": 0.6
   }
  ],
  "jev_cache": {
-  "SPY|trend|2026-10-29": {
+  "AAPL|trend|2026-10-30": {
    "answer": "take",
-   "prob_take": 0.76,
-   "confidence": 0.52,
+   "prob_take": 0.88,
+   "confidence": 0.76,
    "model": "jev-1.14.0",
    "error": null
   },
-  "AAPL|trend|2026-10-29": {
-   "answer": "take",
-   "prob_take": 0.86,
-   "confidence": 0.72,
-   "model": "jev-1.14.0",
-   "error": null
-  },
-  "MSFT|trend|2026-10-29": {
-   "answer": "take",
-   "prob_take": 0.85,
-   "confidence": 0.7,
-   "model": "jev-1.14.0",
-   "error": null
-  },
-  "TSLA|trend|2026-10-29": {
+  "TSLA|trend|2026-10-30": {
    "answer": "take",
    "prob_take": 0.89,
    "confidence": 0.78,
    "model": "jev-1.14.0",
    "error": null
   },
-  "SOL|meanrev|2026-10-29": {
+  "ETH|meanrev|2026-10-30": {
    "answer": "take",
-   "prob_take": 0.76,
-   "confidence": 0.52,
+   "prob_take": 0.8,
+   "confidence": 0.6,
    "model": "jev-1.14.0",
    "error": null
   }
