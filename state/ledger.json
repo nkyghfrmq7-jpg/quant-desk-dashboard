@@ -258,36 +258,6 @@
  ],
  "log": [
   {
-   "ts": "2026-11-03T10:16:48-06:00",
-   "cycle": "2026-11-03T10:16:43-06:00",
-   "agent": "Research Analyst",
-   "msg": "Momentum leaders (20d): TSLA +5.2%, AAPL -0.9%, MSFT -2.4%. Most volatile: AMD."
-  },
-  {
-   "ts": "2026-11-03T10:16:48-06:00",
-   "cycle": "2026-11-03T10:16:43-06:00",
-   "agent": "Quant Strategist",
-   "msg": "1 BUY signals: TSLA(trend). Backtest: trend 130 trades, win 46%; meanrev 3 trades, win 33%; breakout 61 trades, win 39%.\nJev (log-only): TSLA take (0.89)."
-  },
-  {
-   "ts": "2026-11-03T10:16:48-06:00",
-   "cycle": "2026-11-03T10:16:43-06:00",
-   "agent": "Risk Manager",
-   "msg": "Drawdown -2.8%. Approved none; vetoed 0. Max 2% risk / 25% per name, max 4 open, stops on all."
-  },
-  {
-   "ts": "2026-11-03T10:16:48-06:00",
-   "cycle": "2026-11-03T10:16:43-06:00",
-   "agent": "Trader",
-   "msg": "No fills this cycle."
-  },
-  {
-   "ts": "2026-11-03T10:16:48-06:00",
-   "cycle": "2026-11-03T10:16:43-06:00",
-   "agent": "Portfolio Reporter",
-   "msg": "Account $984.95 | P&L $-15.05 (-1.51%) | 3 open | max DD -2.8%."
-  },
-  {
    "ts": "2026-11-03T10:41:56-06:00",
    "cycle": "2026-11-03T10:41:51-06:00",
    "agent": "Research Analyst",
@@ -2056,6 +2026,36 @@
    "cycle": "2026-11-06T15:45:40-06:00",
    "agent": "Portfolio Reporter",
    "msg": "Account $942.31 | P&L $-57.69 (-5.77%) | 4 open | max DD -7.4%."
+  },
+  {
+   "ts": "2026-11-09T08:18:26-06:00",
+   "cycle": "2026-11-09T08:18:20-06:00",
+   "agent": "Research Analyst",
+   "msg": "Momentum leaders (20d): AAPL +1.7%, MSFT -0.8%, SPY -5.6%. Most volatile: AMD."
+  },
+  {
+   "ts": "2026-11-09T08:18:26-06:00",
+   "cycle": "2026-11-09T08:18:20-06:00",
+   "agent": "Quant Strategist",
+   "msg": "1 BUY signals: SOL(meanrev). Backtest: trend 129 trades, win 43%; meanrev 3 trades, win 33%; breakout 58 trades, win 38%.\nJev (log-only): SOL take (0.74)."
+  },
+  {
+   "ts": "2026-11-09T08:18:26-06:00",
+   "cycle": "2026-11-09T08:18:20-06:00",
+   "agent": "Risk Manager",
+   "msg": "Drawdown -7.0%. Approved none; vetoed 1. Max 2% risk / 25% per name, max 4 open, stops on all."
+  },
+  {
+   "ts": "2026-11-09T08:18:26-06:00",
+   "cycle": "2026-11-09T08:18:20-06:00",
+   "agent": "Trader",
+   "msg": "No fills this cycle. Stocks wait for the 9:30 AM ET open."
+  },
+  {
+   "ts": "2026-11-09T08:18:26-06:00",
+   "cycle": "2026-11-09T08:18:20-06:00",
+   "agent": "Portfolio Reporter",
+   "msg": "Account $942.31 | P&L $-57.69 (-5.77%) | 4 open | max DD -7.4%."
   }
  ],
  "vetoes": [
@@ -2610,27 +2610,33 @@
    "ticker": "AMD",
    "signal": "meanrev",
    "reason": "max 4 open positions"
+  },
+  {
+   "ts": "2026-11-09T08:18:20-06:00",
+   "ticker": "SOL",
+   "signal": "meanrev",
+   "reason": "max 4 open positions"
   }
  ],
  "agents": {
   "Research Analyst": {
-   "ts": "2026-11-06T15:45:44-06:00",
+   "ts": "2026-11-09T08:18:26-06:00",
    "msg": "Momentum leaders (20d): AAPL +1.7%, MSFT -0.8%, SPY -5.6%. Most volatile: AMD."
   },
   "Quant Strategist": {
-   "ts": "2026-11-06T15:45:44-06:00",
-   "msg": "0 BUY signals: none. Backtest: trend 129 trades, win 43%; meanrev 3 trades, win 33%; breakout 59 trades, win 39%.\nJev (log-only): no signals."
+   "ts": "2026-11-09T08:18:26-06:00",
+   "msg": "1 BUY signals: SOL(meanrev). Backtest: trend 129 trades, win 43%; meanrev 3 trades, win 33%; breakout 58 trades, win 38%.\nJev (log-only): SOL take (0.74)."
   },
   "Risk Manager": {
-   "ts": "2026-11-06T15:45:44-06:00",
-   "msg": "Drawdown -7.0%. Approved none; vetoed 0. Max 2% risk / 25% per name, max 4 open, stops on all."
+   "ts": "2026-11-09T08:18:26-06:00",
+   "msg": "Drawdown -7.0%. Approved none; vetoed 1. Max 2% risk / 25% per name, max 4 open, stops on all."
   },
   "Trader": {
-   "ts": "2026-11-06T15:45:44-06:00",
+   "ts": "2026-11-09T08:18:26-06:00",
    "msg": "No fills this cycle. Stocks wait for the 9:30 AM ET open."
   },
   "Portfolio Reporter": {
-   "ts": "2026-11-06T15:45:44-06:00",
+   "ts": "2026-11-09T08:18:26-06:00",
    "msg": "Account $942.31 | P&L $-57.69 (-5.77%) | 4 open | max DD -7.4%."
   },
   "Quant Desk": {
@@ -3688,10 +3694,15 @@
    "ts": "2026-11-06T15:45:40-06:00",
    "equity": 942.3119,
    "drawdown": -0.07033176055382728
+  },
+  {
+   "ts": "2026-11-09T08:18:20-06:00",
+   "equity": 942.3119,
+   "drawdown": -0.07033176055382728
   }
  ],
- "cycles": 210,
- "cycle_ts": "2026-11-06T15:45:40-06:00",
+ "cycles": 211,
+ "cycle_ts": "2026-11-09T08:18:20-06:00",
  "research": {
   "scan": {
    "SPY": {
@@ -3737,22 +3748,22 @@
     "price": 449.0400085449219
    },
    "BTC": {
-    "mom20": -0.06983143286360927,
-    "mom60": -0.04200309871149077,
-    "vol20": 0.3982108345319027,
-    "price": 75732.0
+    "mom20": -0.10192582260990346,
+    "mom60": -0.02670745580531453,
+    "vol20": 0.38951248741519384,
+    "price": 74529.0
    },
    "ETH": {
-    "mom20": -0.07279030183983715,
-    "mom60": -0.10569412444708481,
-    "vol20": 0.5255751484427128,
-    "price": 2227.26
+    "mom20": -0.13391202096994148,
+    "mom60": -0.13061796601555786,
+    "vol20": 0.5534710385064232,
+    "price": 2119.54
    },
    "SOL": {
-    "mom20": -0.13146447559207353,
-    "mom60": -0.13489312536106302,
-    "vol20": 0.46663691739823265,
-    "price": 89.91
+    "mom20": -0.18447968471427234,
+    "mom60": -0.1192744223753548,
+    "vol20": 0.46808375424522797,
+    "price": 86.8
    }
   },
   "rank": [
@@ -3761,8 +3772,8 @@
    "SPY",
    "TSLA",
    "BTC",
-   "ETH",
    "QQQ",
+   "ETH",
    "SOL",
    "NVDA",
    "AMD"
@@ -3774,7 +3785,7 @@
    "trend": {
     "trades": 129,
     "win_rate": 0.43410852713178294,
-    "avg_ret": -0.0014616912963461336
+    "avg_ret": -0.0014616924977161896
    },
    "meanrev": {
     "trades": 3,
@@ -3782,14 +3793,28 @@
     "avg_ret": 0.010449901949414272
    },
    "breakout": {
-    "trades": 59,
-    "win_rate": 0.3898305084745763,
-    "avg_ret": -0.004263796676579761
+    "trades": 58,
+    "win_rate": 0.3793103448275862,
+    "avg_ret": -0.005277174602617688
    }
   }
  },
  "killed": false,
- "signals": [],
+ "signals": [
+  {
+   "ticker": "SOL",
+   "signal": "meanrev",
+   "price": 86.8,
+   "bt": {
+    "trades": 1,
+    "win_rate": 0.0,
+    "avg_ret": -0.033479406230399245,
+    "total": -0.033479406230399245
+   },
+   "status": "VETOED",
+   "reason": "max 4 open positions"
+  }
+ ],
  "stats": {
   "equity": 942.3119134362885,
   "cash": 4.774957227869152,
@@ -3801,7 +3826,7 @@
   "win_rate": 0.125,
   "max_dd": -0.07389452453148959,
   "drawdown": -0.07033176055382728,
-  "day": 17,
+  "day": 20,
   "days": 30,
   "start": "2026-10-21",
   "end": "2026-11-20"
@@ -3837,15 +3862,15 @@
    "src": "yfinance"
   },
   "BTC": {
-   "price": 75732.0,
+   "price": 74529.0,
    "src": "coingecko"
   },
   "ETH": {
-   "price": 2227.26,
+   "price": 2119.54,
    "src": "coingecko"
   },
   "SOL": {
-   "price": 89.91,
+   "price": 86.8,
    "src": "coingecko"
   }
  },
@@ -4388,41 +4413,24 @@
    "status_after_risk": "VETOED",
    "model": "jev-1.14.0",
    "confidence": 0.56
+  },
+  {
+   "ts": "2026-11-09T08:18:20-06:00",
+   "ticker": "SOL",
+   "signal": "meanrev",
+   "price": 86.8,
+   "answer": "take",
+   "prob_take": 0.74,
+   "status_after_risk": "VETOED",
+   "model": "jev-1.14.0",
+   "confidence": 0.48
   }
  ],
  "jev_cache": {
-  "QQQ|meanrev|2026-11-06": {
+  "SOL|meanrev|2026-11-09": {
    "answer": "take",
-   "prob_take": 0.82,
-   "confidence": 0.64,
-   "model": "jev-1.14.0",
-   "error": null
-  },
-  "NVDA|meanrev|2026-11-06": {
-   "answer": "take",
-   "prob_take": 0.8,
-   "confidence": 0.6,
-   "model": "jev-1.14.0",
-   "error": null
-  },
-  "AAPL|trend|2026-11-06": {
-   "answer": "take",
-   "prob_take": 0.72,
-   "confidence": 0.44,
-   "model": "jev-1.14.0",
-   "error": null
-  },
-  "MSFT|trend|2026-11-06": {
-   "answer": "take",
-   "prob_take": 0.83,
-   "confidence": 0.66,
-   "model": "jev-1.14.0",
-   "error": null
-  },
-  "AMD|meanrev|2026-11-06": {
-   "answer": "take",
-   "prob_take": 0.78,
-   "confidence": 0.56,
+   "prob_take": 0.74,
+   "confidence": 0.48,
    "model": "jev-1.14.0",
    "error": null
   }
