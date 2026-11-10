@@ -91,7 +91,7 @@ canvas.fill{flex:1 1 0;min-height:0;height:auto;overflow:hidden}
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 </head><body>
 <div id="top">
- <div class="logo"><img id="logoimg"><div><div class="n">QUANT <span>DESK</span></div><div class="s">5 AGENTS · ONE BOOK · STOCKS + CRYPTO<br>PAPER · $1,000 SEED</div></div></div>
+ <div class="logo"><img id="logoimg"><div><div class="n">QUANT <span>DESK</span></div><div class="s">5 AGENTS · ONE BOOK · STOCKS + CRYPTO<br>PAPER · $1,000 SEED + $9,000 ADDED NOV 10</div></div></div>
  <nav><a class="tab" id="tab-floor" href="#floor">1 · FLOOR</a><a class="tab" id="tab-book" href="#book">2 · BOOK</a><a class="h" href="classic.html" style="text-decoration:none;color:var(--grn)">CLASSIC</a></nav>
  <div class="st"><b id="h-eq">—</b><i>EQUITY · PAPER</i></div>
  <div class="st g"><b id="h-pnl">—</b><i>P&amp;L SINCE OCT 21</i></div>
@@ -294,9 +294,9 @@ function render(){const s=S.stats||{},P=S.positions||{},pk=Object.keys(P);
  $('handoff').innerHTML=hl.length?hl.map(l=>{const a=AG.find(x=>x.n==l.agent);return `<div class="kv"><span style="color:${a?.c}">● ${a?.code}</span><span class=mut style="flex:1;margin-left:6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">${esc(l.msg)}</span></div>`}).join(''):'<p class=ph>No notes for latest cycle.</p>';
  // PNL
  const eqv=s.equity;$('p-eq').textContent=eqv==null?'—':Math.floor(eqv).toLocaleString('en-US')+'.'+(eqv%1).toFixed(2).slice(2);$('p-pnl').innerHTML=`<span class="${cls(s.pnl)}">${s.pnl>=0?'▲':'▼'} ${money(s.pnl)}</span>`;
- $('p-sub').innerHTML=`ROI <b class="${cls(s.roi)}">${pct(s.roi,3)}</b> · ON $1,000 SEED`;$('p-roi').innerHTML=`<span class="${cls(s.roi)}">${pct(s.roi)}</span>`;$('p-day').textContent=s.day??'—';
+ $('p-sub').innerHTML=`ROI <b class="${cls(s.roi)}">${pct(s.roi,3)}</b> · ON $${Math.round((window.__cap=s.capital||1000)).toLocaleString()} CAPITAL`;$('p-roi').innerHTML=`<span class="${cls(s.roi)}">${pct(s.roi)}</span>`;$('p-day').textContent=s.day??'—';
  $('p-t').textContent=s.trades??'—';$('p-wr').textContent=s.win_rate==null?'—':(s.win_rate*100).toFixed(1)+'%';const up=Object.values(P).reduce((a,p)=>a+(p.upnl||0),0);$('p-up').innerHTML=`<span class="${cls(up)}">${money(up)}</span>`;$('p-dd').textContent=pct(s.max_dd,1);
- const r=line($('eqcv'),EQ.map(r=>r.eq),'#3bd98c',true,1000);if(r){r.x.fillStyle='#3bd98c';r.x.font="800 20px Inter";const t=money(EQ.at(-1)?.eq);r.x.fillText(t,r.w-r.x.measureText(t).width-4,22);r.x.font="8px 'JetBrains Mono'";r.x.fillStyle='#5c6a74';r.x.fillText('BALANCE · $1,000 SEED (dashed)',4,12);
+ const r=line($('eqcv'),EQ.map(r=>r.eq),'#3bd98c',true,(window.__cap||1000));if(r){r.x.fillStyle='#3bd98c';r.x.font="800 20px Inter";const t=money(EQ.at(-1)?.eq);r.x.fillText(t,r.w-r.x.measureText(t).width-4,22);r.x.font="8px 'JetBrains Mono'";r.x.fillStyle='#5c6a74';r.x.fillText('BALANCE · $1,000 SEED (dashed)',4,12);
   $('eqcv').onmousemove=e=>{const b=$('eqcv').getBoundingClientRect(),i=Math.round((e.clientX-b.left)/b.width*(EQ.length-1));const q=EQ[i];q&&showTip(e,`${fmtD(q.ts)}<br>${money(q.eq)}`)}}
  line($('eqmini'),(C?.SPY||[]).slice(-60).map(c=>c.close),'#3bd98c',true);
  const stk=pk.filter(t=>!['BTC','ETH','SOL'].includes(t)).reduce((a,t)=>a+P[t].value,0),cr=pk.filter(t=>['BTC','ETH','SOL'].includes(t)).reduce((a,t)=>a+P[t].value,0),E=s.equity||1;
