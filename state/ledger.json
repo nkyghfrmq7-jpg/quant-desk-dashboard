@@ -1,5 +1,5 @@
 {
- "cash": 4357.922822191958,
+ "cash": 0.8228221919583092,
  "positions": {
   "AAPL": {
    "qty": 0.6949683000279293,
@@ -10,9 +10,9 @@
    "signal": "trend",
    "opened": "2026-11-04T08:47:21-06:00",
    "high": 359.42999267578125,
-   "price": 356.2699890136719,
-   "value": 247.5963486158006,
-   "upnl": 4.086348615800603
+   "price": 355.25,
+   "value": 246.8874885849219,
+   "upnl": 3.377488584921906
   },
   "QQQ": {
    "qty": 0.3492400065489464,
@@ -23,9 +23,9 @@
    "signal": "meanrev",
    "opened": "2026-11-05T09:43:55-06:00",
    "high": 695.2000122070312,
-   "price": 679.8900146484375,
-   "value": 237.44479316838357,
-   "upnl": 7.3247931683835645
+   "price": 669.719970703125,
+   "value": 233.89300695431956,
+   "upnl": 3.7730069543195555
   },
   "MSFT": {
    "qty": 0.43819744429963464,
@@ -36,9 +36,9 @@
    "signal": "trend",
    "opened": "2026-11-06T09:17:44-06:00",
    "high": 547.6859741210938,
-   "price": 523.8800048828125,
-   "value": 229.56287925932855,
-   "upnl": -4.567120740671442
+   "price": 521.989990234375,
+   "value": 228.73467967069436,
+   "upnl": -5.395320329305633
   },
   "TSLA": {
    "qty": 6.438029140318429,
@@ -49,9 +49,9 @@
    "signal": "trend",
    "opened": "2026-11-11T08:47:43-06:00",
    "high": 397.93499755859375,
-   "price": 390.2200012207031,
-   "value": 2512.2477389939795,
-   "upnl": 7.807738993979456
+   "price": 387.3999938964844,
+   "value": 2494.092449664748,
+   "upnl": -10.34755033525198
   },
   "NVDA": {
    "qty": 10.387968955652461,
@@ -62,9 +62,48 @@
    "signal": "meanrev",
    "opened": "2026-11-12T09:17:41-06:00",
    "high": 165.69500732421875,
-   "price": 162.85000610351562,
-   "value": 1691.6808078311342,
-   "upnl": -8.79919216886583
+   "price": 160.36000061035156,
+   "value": 1665.8147080687418,
+   "upnl": -34.66529193125825
+  },
+  "BTC": {
+   "qty": 0.03529188657863889,
+   "entry": 65299.23399999999,
+   "cost": 2306.84,
+   "stop": 61875.411919,
+   "stop_pct": 0.05148523899808751,
+   "signal": "meanrev",
+   "opened": "2026-11-16T08:38:00-06:00",
+   "high": 65299.23399999999,
+   "price": 65234.0,
+   "value": 2302.230929070929,
+   "upnl": -4.609070929071095
+  },
+  "ETH": {
+   "qty": 1.0842132578673442,
+   "entry": 1852.0802299999998,
+   "cost": 2010.06,
+   "stop": 1716.148556,
+   "stop_pct": 0.07246744649926683,
+   "signal": "meanrev",
+   "opened": "2026-11-16T08:38:00-06:00",
+   "high": 1852.0802299999998,
+   "price": 1850.23,
+   "value": 2006.0438961038963,
+   "upnl": -4.016103896103687
+  },
+  "SOL": {
+   "qty": 0.5552896930059561,
+   "entry": 72.32225,
+   "cost": 40.2,
+   "stop": 67.308667,
+   "stop_pct": 0.06839214862964857,
+   "signal": "meanrev",
+   "opened": "2026-11-16T08:38:00-06:00",
+   "high": 72.32225,
+   "price": 72.25,
+   "value": 40.11968031968033,
+   "upnl": -0.08031968031967551
   }
  },
  "trades": [
@@ -417,39 +456,39 @@
    "fee": 0.030103598618963064,
    "pnl": -2.306504979655905,
    "reason": "stop hit"
+  },
+  {
+   "ts": "2026-11-16T08:38:00-06:00",
+   "ticker": "BTC",
+   "side": "BUY",
+   "qty": 0.03529188657863889,
+   "price": 65299.23399999999,
+   "fee": 2.3068400000000002,
+   "pnl": null,
+   "reason": "meanrev"
+  },
+  {
+   "ts": "2026-11-16T08:38:00-06:00",
+   "ticker": "ETH",
+   "side": "BUY",
+   "qty": 1.0842132578673442,
+   "price": 1852.0802299999998,
+   "fee": 2.01006,
+   "pnl": null,
+   "reason": "meanrev"
+  },
+  {
+   "ts": "2026-11-16T08:38:00-06:00",
+   "ticker": "SOL",
+   "side": "BUY",
+   "qty": 0.5552896930059561,
+   "price": 72.32225,
+   "fee": 0.04020000000000001,
+   "pnl": null,
+   "reason": "meanrev"
   }
  ],
  "log": [
-  {
-   "ts": "2026-11-10T10:44:26-06:00",
-   "cycle": "2026-11-10T10:44:21-06:00",
-   "agent": "Research Analyst",
-   "msg": "Momentum leaders (20d): AAPL +1.8%, TSLA +0.2%, MSFT -0.4%. Most volatile: AMD."
-  },
-  {
-   "ts": "2026-11-10T10:44:27-06:00",
-   "cycle": "2026-11-10T10:44:21-06:00",
-   "agent": "Quant Strategist",
-   "msg": "5 BUY signals: NVDA(meanrev), AAPL(trend), MSFT(trend), ETH(meanrev), SOL(meanrev). Backtest: trend 128 trades, win 45%; meanrev 4 trades, win 25%; breakout 56 trades, win 34%.\nJev (veto on): NVDA take (0.78), AAPL take (0.87), MSFT take (0.86), ETH take (0.76), SOL take (0.79)."
-  },
-  {
-   "ts": "2026-11-10T10:44:27-06:00",
-   "cycle": "2026-11-10T10:44:21-06:00",
-   "agent": "Risk Manager",
-   "msg": "Drawdown -1.1%. Approved none; vetoed 0. Max 15% risk / 25% per name, max 10 open, stops on all."
-  },
-  {
-   "ts": "2026-11-10T10:44:27-06:00",
-   "cycle": "2026-11-10T10:44:21-06:00",
-   "agent": "Trader",
-   "msg": "No fills this cycle."
-  },
-  {
-   "ts": "2026-11-10T10:44:27-06:00",
-   "cycle": "2026-11-10T10:44:21-06:00",
-   "agent": "Portfolio Reporter",
-   "msg": "Account $9,904.29 | P&L $-95.71 (-0.96%) on $10,000 | 6 open | max DD -8.2%."
-  },
   {
    "ts": "2026-11-10T11:10:49-06:00",
    "cycle": "2026-11-10T11:10:45-06:00",
@@ -2219,6 +2258,36 @@
    "cycle": "2026-11-16T08:07:20-06:00",
    "agent": "Portfolio Reporter",
    "msg": "Account $9,276.46 | P&L $-723.54 (-7.24%) on $10,000 | 5 open | max DD -8.5%."
+  },
+  {
+   "ts": "2026-11-16T08:38:04-06:00",
+   "cycle": "2026-11-16T08:38:00-06:00",
+   "agent": "Research Analyst",
+   "msg": "Momentum leaders (20d): TSLA +5.4%, AAPL +3.7%, MSFT -2.2%. Most volatile: AMD."
+  },
+  {
+   "ts": "2026-11-16T08:38:04-06:00",
+   "cycle": "2026-11-16T08:38:00-06:00",
+   "agent": "Quant Strategist",
+   "msg": "6 BUY signals: NVDA(meanrev), AAPL(trend), TSLA(trend), BTC(meanrev), ETH(meanrev), SOL(meanrev). Backtest: trend 123 trades, win 41%; meanrev 9 trades, win 33%; breakout 55 trades, win 31%.\nJev (veto on): NVDA take (0.77), AAPL take (0.88), TSLA take (0.80), BTC take (0.84), ETH take (0.79), SOL take (0.77)."
+  },
+  {
+   "ts": "2026-11-16T08:38:04-06:00",
+   "cycle": "2026-11-16T08:38:00-06:00",
+   "agent": "Risk Manager",
+   "msg": "Drawdown -9.0%. Approved ['BTC', 'ETH', 'SOL']; vetoed 0. Max 15% risk / 25% per name, max 10 open, stops on all."
+  },
+  {
+   "ts": "2026-11-16T08:38:04-06:00",
+   "cycle": "2026-11-16T08:38:00-06:00",
+   "agent": "Trader",
+   "msg": "BOUGHT 0.0352919 BTC @ 65,299.23 ($2306.84); BOUGHT 1.08421 ETH @ 1,852.08 ($2010.06); BOUGHT 0.55529 SOL @ 72.32 ($40.20)"
+  },
+  {
+   "ts": "2026-11-16T08:38:04-06:00",
+   "cycle": "2026-11-16T08:38:00-06:00",
+   "agent": "Portfolio Reporter",
+   "msg": "Account $9,218.64 | P&L $-781.36 (-7.81%) on $10,000 | 8 open | max DD -9.1%."
   }
  ],
  "vetoes": [
@@ -2957,24 +3026,24 @@
  ],
  "agents": {
   "Research Analyst": {
-   "ts": "2026-11-16T08:07:24-06:00",
-   "msg": "Momentum leaders (20d): TSLA +10.0%, AAPL +3.8%, AMD +1.0%. Most volatile: AMD."
+   "ts": "2026-11-16T08:38:04-06:00",
+   "msg": "Momentum leaders (20d): TSLA +5.4%, AAPL +3.7%, MSFT -2.2%. Most volatile: AMD."
   },
   "Quant Strategist": {
-   "ts": "2026-11-16T08:07:25-06:00",
-   "msg": "6 BUY signals: NVDA(meanrev), AAPL(trend), TSLA(trend), BTC(meanrev), ETH(meanrev), SOL(meanrev). Backtest: trend 125 trades, win 40%; meanrev 9 trades, win 33%; breakout 55 trades, win 31%.\nJev (veto on): NVDA take (0.77), AAPL take (0.88), TSLA take (0.80), BTC take (0.84), ETH take (0.79), SOL take (0.77)."
+   "ts": "2026-11-16T08:38:04-06:00",
+   "msg": "6 BUY signals: NVDA(meanrev), AAPL(trend), TSLA(trend), BTC(meanrev), ETH(meanrev), SOL(meanrev). Backtest: trend 123 trades, win 41%; meanrev 9 trades, win 33%; breakout 55 trades, win 31%.\nJev (veto on): NVDA take (0.77), AAPL take (0.88), TSLA take (0.80), BTC take (0.84), ETH take (0.79), SOL take (0.77)."
   },
   "Risk Manager": {
-   "ts": "2026-11-16T08:07:25-06:00",
-   "msg": "Drawdown -8.5%. Approved none; vetoed 0. Max 15% risk / 25% per name, max 10 open, stops on all."
+   "ts": "2026-11-16T08:38:04-06:00",
+   "msg": "Drawdown -9.0%. Approved ['BTC', 'ETH', 'SOL']; vetoed 0. Max 15% risk / 25% per name, max 10 open, stops on all."
   },
   "Trader": {
-   "ts": "2026-11-16T08:07:25-06:00",
-   "msg": "SOLD ETH @ 1,800.13 (stop hit, P&L $-285.08); SOLD SOL @ 70.68 (stop hit, P&L $-353.34); SOLD BTC @ 63,999.94 (stop hit, P&L $-2.31)"
+   "ts": "2026-11-16T08:38:04-06:00",
+   "msg": "BOUGHT 0.0352919 BTC @ 65,299.23 ($2306.84); BOUGHT 1.08421 ETH @ 1,852.08 ($2010.06); BOUGHT 0.55529 SOL @ 72.32 ($40.20)"
   },
   "Portfolio Reporter": {
-   "ts": "2026-11-16T08:07:25-06:00",
-   "msg": "Account $9,276.46 | P&L $-723.54 (-7.24%) on $10,000 | 5 open | max DD -8.5%."
+   "ts": "2026-11-16T08:38:04-06:00",
+   "msg": "Account $9,218.64 | P&L $-781.36 (-7.81%) on $10,000 | 8 open | max DD -9.1%."
   },
   "Quant Desk": {
    "ts": "2026-10-22T13:47:14-05:00",
@@ -4436,79 +4505,84 @@
    "ts": "2026-11-16T08:07:20-06:00",
    "equity": 9276.4554,
    "drawdown": -0.08535704355561391
+  },
+  {
+   "ts": "2026-11-16T08:38:00-06:00",
+   "equity": 9218.6397,
+   "drawdown": -0.09105757759280031
   }
  ],
- "cycles": 291,
- "cycle_ts": "2026-11-16T08:07:20-06:00",
+ "cycles": 292,
+ "cycle_ts": "2026-11-16T08:38:00-06:00",
  "research": {
   "scan": {
    "SPY": {
-    "mom20": -0.011634464307648251,
-    "mom60": -0.008335627367264453,
-    "vol20": 0.22071860437993104,
-    "price": 754.3699951171875
+    "mom20": -0.02315781292701835,
+    "mom60": -0.01976014984242258,
+    "vol20": 0.22130716555977395,
+    "price": 748.8200073242188
    },
    "QQQ": {
-    "mom20": -0.04213859348960047,
-    "mom60": -0.04266453942985382,
-    "vol20": 0.3539561784599649,
-    "price": 679.8900146484375
+    "mom20": -0.0676749696888852,
+    "mom60": -0.060267363567898635,
+    "vol20": 0.3527882187274462,
+    "price": 669.719970703125
    },
    "NVDA": {
-    "mom20": -0.2394806781392501,
-    "mom60": -0.24817975262472214,
-    "vol20": 0.5277845673066998,
-    "price": 162.85000610351562
+    "mom20": -0.26143530600869747,
+    "mom60": -0.25244778766778586,
+    "vol20": 0.5181523574857502,
+    "price": 160.36000061035156
    },
    "AAPL": {
-    "mom20": 0.03808508163648572,
-    "mom60": 0.14532833679962387,
-    "vol20": 0.2785277910270534,
-    "price": 356.2699890136719
+    "mom20": 0.03668258210981179,
+    "mom60": 0.14924813050734587,
+    "vol20": 0.2787954920163634,
+    "price": 355.25
    },
    "MSFT": {
-    "mom20": -0.009772201170864414,
-    "mom60": 0.08880808797333395,
-    "vol20": 0.3690314851451276,
-    "price": 523.8800048828125
+    "mom20": -0.021611240206141247,
+    "mom60": 0.08018789997327413,
+    "vol20": 0.36774654714605404,
+    "price": 521.989990234375
    },
    "TSLA": {
-    "mom20": 0.10007893515401811,
-    "mom60": 0.1306464106277887,
-    "vol20": 0.5987892600297866,
-    "price": 390.2200012207031
+    "mom20": 0.053551028598103345,
+    "mom60": 0.06864907861905722,
+    "vol20": 0.5877152789024102,
+    "price": 387.3999938964844
    },
    "AMD": {
-    "mom20": 0.010042548574172638,
-    "mom60": 0.13760492327214013,
-    "vol20": 1.1995648979833524,
-    "price": 534.0599975585938
+    "mom20": -0.0328128773576184,
+    "mom60": 0.09961969261753834,
+    "vol20": 1.2025293946385665,
+    "price": 520.4450073242188
    },
    "BTC": {
-    "mom20": -0.20677835894365837,
-    "mom60": -0.1605318638424169,
-    "vol20": 0.490196786611792,
-    "price": 64064.0
+    "mom20": -0.19158333331273525,
+    "mom60": -0.14445093616087912,
+    "vol20": 0.49181205497169334,
+    "price": 65234.0
    },
    "ETH": {
-    "mom20": -0.2332551239873164,
-    "mom60": -0.263164989216391,
-    "vol20": 0.6851149689428668,
-    "price": 1801.93
+    "mom20": -0.2108039410709579,
+    "mom60": -0.24158960198679824,
+    "vol20": 0.6922443106980541,
+    "price": 1850.23
    },
    "SOL": {
-    "mom20": -0.3018346813967252,
-    "mom60": -0.303757623450718,
-    "vol20": 0.6524278297257413,
-    "price": 70.75
+    "mom20": -0.2842769777076346,
+    "mom60": -0.2862482785756443,
+    "vol20": 0.65331508245939,
+    "price": 72.25
    }
   },
   "rank": [
    "TSLA",
    "AAPL",
-   "AMD",
    "MSFT",
    "SPY",
+   "AMD",
    "QQQ",
    "BTC",
    "ETH",
@@ -4520,19 +4594,19 @@
   "window": "last ~6 months (130 bars), 5-bar hold, 0.4% round-trip cost",
   "summary": {
    "trend": {
-    "trades": 125,
-    "win_rate": 0.4,
-    "avg_ret": -0.006327812037493948
+    "trades": 123,
+    "win_rate": 0.4065040650406504,
+    "avg_ret": -0.00564161710524276
    },
    "meanrev": {
     "trades": 9,
     "win_rate": 0.3333333333333333,
-    "avg_ret": 0.012228742895345134
+    "avg_ret": 0.014603596134751682
    },
    "breakout": {
     "trades": 55,
     "win_rate": 0.3090909090909091,
-    "avg_ret": -0.010607090713416098
+    "avg_ret": -0.010658648076058938
    }
   }
  },
@@ -4541,7 +4615,7 @@
   {
    "ticker": "NVDA",
    "signal": "meanrev",
-   "price": 162.85000610351562,
+   "price": 160.36000061035156,
    "bt": {
     "trades": 1,
     "win_rate": 0.0,
@@ -4554,12 +4628,12 @@
   {
    "ticker": "AAPL",
    "signal": "trend",
-   "price": 356.2699890136719,
+   "price": 355.25,
    "bt": {
     "trades": 15,
     "win_rate": 0.7333333333333333,
-    "avg_ret": 0.004627447970382573,
-    "total": 0.06485338587536771
+    "avg_ret": 0.003690961861023137,
+    "total": 0.05028705577308168
    },
    "status": "HELD",
    "reason": "already holding"
@@ -4567,12 +4641,12 @@
   {
    "ticker": "TSLA",
    "signal": "trend",
-   "price": 390.2200012207031,
+   "price": 387.3999938964844,
    "bt": {
-    "trades": 9,
-    "win_rate": 0.3333333333333333,
-    "avg_ret": -0.016462698832794696,
-    "total": -0.1526525511816259
+    "trades": 8,
+    "win_rate": 0.375,
+    "avg_ret": -0.006649829355920857,
+    "total": -0.06146217627653161
    },
    "status": "HELD",
    "reason": "already holding"
@@ -4580,100 +4654,106 @@
   {
    "ticker": "BTC",
    "signal": "meanrev",
-   "price": 64064.0,
+   "price": 65234.0,
    "bt": {
     "trades": 0,
     "win_rate": null,
     "avg_ret": null,
     "total": 0.0
    },
-   "status": "HELD",
-   "reason": "already holding"
+   "status": "TAKEN",
+   "notional": 2306.84,
+   "stop": 61875.411919,
+   "stop_pct": 0.05148523899808751
   },
   {
    "ticker": "ETH",
    "signal": "meanrev",
-   "price": 1801.93,
+   "price": 1850.23,
    "bt": {
     "trades": 1,
     "win_rate": 0.0,
     "avg_ret": -0.11007329638971941,
     "total": -0.11007329638971941
    },
-   "status": "HELD",
-   "reason": "already holding"
+   "status": "TAKEN",
+   "notional": 2010.06,
+   "stop": 1716.148556,
+   "stop_pct": 0.07246744649926683
   },
   {
    "ticker": "SOL",
    "signal": "meanrev",
-   "price": 70.75,
+   "price": 72.25,
    "bt": {
     "trades": 3,
     "win_rate": 0.0,
-    "avg_ret": -0.08623986792950948,
-    "total": -0.24058270032193296
+    "avg_ret": -0.07911530821128983,
+    "total": -0.22139430200781385
    },
-   "status": "HELD",
-   "reason": "already holding"
+   "status": "TAKEN",
+   "notional": 40.2,
+   "stop": 67.308667,
+   "stop_pct": 0.06839214862964857
   }
  ],
  "stats": {
-  "equity": 9276.455390060586,
-  "cash": 4357.922822191958,
-  "holdings": 4918.532567868627,
-  "pnl": -723.5446099394139,
-  "roi": -0.07235446099394138,
+  "equity": 9218.63966062989,
+  "cash": 0.8228221919583092,
+  "holdings": 9217.816838437931,
+  "pnl": -781.3603393701105,
+  "roi": -0.07813603393701107,
   "capital": 10000.0,
-  "trades": 35,
+  "trades": 38,
   "closed": 15,
   "win_rate": 0.06666666666666667,
-  "max_dd": -0.08535704355561391,
-  "drawdown": -0.08535704355561391,
+  "max_dd": -0.09105757759280031,
+  "drawdown": -0.09105757759280031,
   "day": 27,
   "days": 30,
   "start": "2026-10-21",
   "end": "2026-11-20"
  },
- "market_open": false,
+ "market_open": true,
  "prices": {
   "SPY": {
-   "price": 754.3699951171875,
+   "price": 748.8200073242188,
    "src": "yfinance"
   },
   "QQQ": {
-   "price": 679.8900146484375,
+   "price": 669.719970703125,
    "src": "yfinance"
   },
   "NVDA": {
-   "price": 162.85000610351562,
+   "price": 160.36000061035156,
    "src": "yfinance"
   },
   "AAPL": {
-   "price": 356.2699890136719,
+   "price": 355.25,
    "src": "yfinance"
   },
   "MSFT": {
-   "price": 523.8800048828125,
+   "price": 521.989990234375,
    "src": "yfinance"
   },
   "TSLA": {
-   "price": 390.2200012207031,
+   "price": 387.3999938964844,
    "src": "yfinance"
   },
   "AMD": {
-   "price": 534.0599975585938,
+   "price": 520.4450073242188,
    "src": "yfinance"
   },
   "BTC": {
-   "price": 64064.0,
+   "price": 65234.0,
    "src": "coingecko"
   },
   "ETH": {
-   "price": 1801.93,
+   "price": 1850.23,
    "src": "coingecko"
   },
   "SOL": {
-   "price": 70.75,
+   "price": 72.25,
    "src": "coingecko"
   }
  },
